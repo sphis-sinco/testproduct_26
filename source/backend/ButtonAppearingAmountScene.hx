@@ -16,6 +16,7 @@ class ButtonAppearingAmountScene extends ButtonScene
 	public var waitMin:Float = 1.0;
 	public var waitMax:Float = 16.0;
 
+	public var wasClever:Bool = false;
 	public var onCompletion:FlxSignal = new FlxSignal();
 
 	override public function new(amount:Int, instruction:String, laststate:String, ?buttonSize:Int = 128)
@@ -32,6 +33,9 @@ class ButtonAppearingAmountScene extends ButtonScene
 
 		onLeftClick.add(function()
 		{
+			if (amountText.alpha < 1)
+				wasClever = true;
+
 			if (buttonClick == this.amount)
 				onCompletion.dispatch();
 		});
