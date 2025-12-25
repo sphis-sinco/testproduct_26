@@ -63,6 +63,7 @@ class ButtonScene extends Scene
 			}
 			if (FlxG.mouse.justPressed)
 			{
+				playBlip();
 				buttonClick++;
 			}
 			if (FlxG.mouse.justReleased)

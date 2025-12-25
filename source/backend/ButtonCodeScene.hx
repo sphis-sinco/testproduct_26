@@ -94,6 +94,7 @@ class ButtonCodeScene extends ButtonScene
 					}
 					if (FlxG.mouse.justReleased)
 					{
+						playBlip();
 						if (btn == tempResetButton)
 						{
 							if (code.length < targetCode.length)
