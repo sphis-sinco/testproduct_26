@@ -1,17 +1,12 @@
 package;
 
-import scenes.Scene5s.Scene5Impatient;
-import scenes.Scene5s.Scene5Normal;
 import scenes.v1.EndImpatientV1;
 import scenes.v1.EndNormalV1;
 import backend.Version;
 import sys.io.File;
 import backend.Scene;
-import scenes.Scene4s.Scene4Impatient;
-import scenes.Scene4s.Scene4Normal;
-import scenes.FirstFewScenes.Scene3;
-import scenes.FirstFewScenes.Scene2;
-import scenes.FirstFewScenes.Scene1;
+import scenes.FirstSceneGroup;
+import scenes.SecondSceneGroup;
 import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxState;
@@ -41,9 +36,10 @@ class InitState extends FlxState
 				
 				'scene4n' => new Scene4Normal(),
 				'scene4i' => new Scene4Impatient(),
-				
 				'scene5n' => new Scene5Normal(),
 				'scene5i' => new Scene5Impatient(),
+				'scene6n' => new Scene6Normal(),
+				'scene6i' => new Scene6Impatient(),
 
 				'endn_M1' => new EndNormalV1(),
 				'endi_M1' => new EndImpatientV1()
