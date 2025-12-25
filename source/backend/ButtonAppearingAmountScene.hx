@@ -28,7 +28,7 @@ class ButtonAppearingAmountScene extends ButtonScene
 		add(amountText);
 		amountText.alpha = 0;
 
-		amountText.setPosition(FlxG.random.float(0, FlxG.width - amountText.width), FlxG.random.float(0, FlxG.height - amountText.height));
+		amountText.setPosition(FlxG.random.float(100, FlxG.width - amountText.width - 100), FlxG.random.float(100, FlxG.height - amountText.height - 100));
 
 		onLeftClick.add(function()
 		{
