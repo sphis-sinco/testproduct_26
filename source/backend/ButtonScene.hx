@@ -10,9 +10,9 @@ class ButtonScene extends Scene
 {
 	public var buttonClick:Int = 0;
 
-	override public function new(instruction:String, ?buttonSize:Int = 128)
+	override public function new(instruction:String, laststate:String, ?buttonSize:Int = 128)
 	{
-		super();
+		super(laststate);
 
 		centerText = new FlxText(0, 0, 0, instruction, 16);
 
@@ -54,7 +54,7 @@ class ButtonScene extends Scene
 		if (FlxG.mouse.overlaps(button))
 		{
 			button.scale.set(0.9, 0.9);
-			
+
 			if (FlxG.mouse.pressed)
 			{
 				button.scale.set(0.8, 0.8);

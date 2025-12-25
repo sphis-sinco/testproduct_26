@@ -1,5 +1,7 @@
 package;
 
+import scenes.FirstFewScenes.Scene3;
+import scenes.FirstFewScenes.Scene2;
 import scenes.FirstFewScenes.Scene1;
 import lime.app.Application;
 import flixel.FlxG;
@@ -23,6 +25,16 @@ class InitState extends FlxState
 		if (FlxG.save.data.build != null)
 			trace(FlxG.save.data.build);
 
-		FlxG.switchState(() -> new Scene1());
+		switch (FlxG.save.data.laststate)
+		{
+			case 'scene3':
+				FlxG.switchState(() -> new Scene3());
+			case 'scene2':
+				FlxG.switchState(() -> new Scene2());
+
+			default:
+				trace('laststate: ' + FlxG.save.data.laststate);
+				FlxG.switchState(() -> new Scene1());
+		}
 	}
 }
