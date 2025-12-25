@@ -54,6 +54,7 @@ class Scene3 extends ButtonScene
 				if (centerText.text != incorrect)
 				{
 					centerText.text = incorrect;
+					centerText.screenCenter(X);
 
 					FlxTimer.wait(1, function()
 					{
@@ -63,13 +64,18 @@ class Scene3 extends ButtonScene
 			}
 		});
 
+		clickText.visible = false;
+	}
+
+	override function create()
+	{
+		super.create();
+
 		FlxTimer.wait(FlxG.random.float(0, 5), function()
 		{
 			greenButton = true;
 			trace('gren');
 			button.color = FlxColor.LIME;
 		});
-
-		clickText.visible = false;
 	}
 }
