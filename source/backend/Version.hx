@@ -16,7 +16,7 @@ class Version
 
 	static function get_MINOR():Null<Int>
 	{
-		return 0;
+		return 1;
 	}
 
 	public static var BUILD(get, never):Null<Int>;
