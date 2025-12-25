@@ -1,5 +1,7 @@
 package backend;
 
+import flixel.FlxG;
+
 class MenuScene extends Scene
 {
 	override public function new()

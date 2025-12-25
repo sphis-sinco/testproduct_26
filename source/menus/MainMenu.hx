@@ -72,6 +72,8 @@ class MainMenu extends MenuScene
 						button.scale.set(0.8, 0.8);
 					if (FlxG.mouse.justReleased)
 					{
+						playBlip();
+
 						if (button == playBox)
 							InitState.switchToGameplay();
 

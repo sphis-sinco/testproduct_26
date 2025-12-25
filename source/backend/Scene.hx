@@ -27,4 +27,9 @@ class Scene extends FlxState
 		transitioning = true;
 		FlxG.switchState(() -> scene);
 	}
+
+	public function playBlip()
+	{
+		FlxG.sound.play('assets/sfx/selectBlip${FlxG.random.int(1, 3)}.wav');
+	}
 }
