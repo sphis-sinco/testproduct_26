@@ -15,6 +15,7 @@ class Scene4Normal extends ButtonScene
 	public var fullResetText:FlxText;
 
 	public var code:Array<Int> = [];
+	public var codeText:FlxText;
 
 	override public function new()
 	{
@@ -30,11 +31,11 @@ class Scene4Normal extends ButtonScene
 		fullResetButton.makeGraphic(128, 128);
 		fullResetButton.color = FlxColor.GRAY;
 
-		tempResetText = new FlxText(0, 0, 0, "Counter Reset", 16);
+		tempResetText = new FlxText(0, 0, 0, "Add Count", 16);
 		add(tempResetText);
 		tempResetText.color = FlxColor.WHITE;
 
-		fullResetText = new FlxText(0, 0, 0, "Code Reset", 16);
+		fullResetText = new FlxText(0, 0, 0, "Reset Code", 16);
 		add(fullResetText);
 		fullResetText.color = FlxColor.WHITE;
 		fullResetText.alignment = RIGHT;
@@ -46,11 +47,29 @@ class Scene4Normal extends ButtonScene
 
 		tempResetText.setPosition(tempResetButton.x, tempResetButton.y + tempResetButton.height + tempResetText.height);
 		fullResetText.setPosition(fullResetButton.x, fullResetButton.y + fullResetButton.height + fullResetText.height);
+
+		codeText = new FlxText();
+		codeText.text = "16";
+		codeText.size = 16;
+		codeText.screenCenter();
+		codeText.y -= codeText.height * 4;
+		add(codeText);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		var codeTextCode:Array<String> = [];
+
+		for (codeInt in code)
+			codeTextCode.push('' + codeInt);
+
+		while (codeTextCode.length < 4)
+			codeTextCode.push('_');
+
+		codeText.text = codeTextCode.join(" ");
+		codeText.screenCenter(X);
 
 		for (btn in [fullResetButton, tempResetButton])
 		{
