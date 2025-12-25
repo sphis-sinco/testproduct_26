@@ -1,10 +1,12 @@
 package;
 
+import scenes.ThirdSceneGroup;
 import scenes.v1.EndImpatientV1;
 import scenes.v1.EndNormalV1;
 import backend.Version;
+#if sys
 import sys.io.File;
-import backend.Scene;
+#end
 import scenes.FirstSceneGroup;
 import scenes.SecondSceneGroup;
 import lime.app.Application;
@@ -33,13 +35,18 @@ class InitState extends FlxState
 			lastSceneToClass = [
 				'scene2' => new Scene2(),
 				'scene3' => new Scene3(),
-				
+
 				'scene4n' => new Scene4Normal(),
 				'scene4i' => new Scene4Impatient(),
 				'scene5n' => new Scene5Normal(),
 				'scene5i' => new Scene5Impatient(),
 				'scene6n' => new Scene6Normal(),
 				'scene6i' => new Scene6Impatient(),
+				
+				'scene7n' => new Scene7Normal(),
+				'scene7i' => new Scene7Impatient(),
+				'scene8n' => new Scene8Normal(),
+				'scene8i' => new Scene8Impatient(),
 
 				'endn_M1' => new EndNormalV1(),
 				'endi_M1' => new EndImpatientV1()

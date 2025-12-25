@@ -1,8 +1,7 @@
 package scenes;
 
+import scenes.ThirdSceneGroup.Scene7Normal;
 import backend.ButtonCodeScene;
-import scenes.v1.EndNormalV1;
-import scenes.v1.EndImpatientV1;
 
 class Scene4Normal extends ButtonCodeScene
 {
@@ -64,7 +63,7 @@ class Scene6Normal extends ButtonCodeScene
 
 		onCompletion.add(function()
 		{
-			switchScene(new EndNormalV1());
+			switchScene(new Scene7Normal());
 		});
 	}
 }
