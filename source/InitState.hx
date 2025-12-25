@@ -16,10 +16,12 @@ class InitState extends FlxState
 		#if debug
 		if (FlxG.save.data.build == null)
 			FlxG.save.data.build = 0;
-		
+
 		FlxG.save.data.build++;
-		trace(FlxG.save.data.build);
 		#end
+
+		if (FlxG.save.data.build != null)
+			trace(FlxG.save.data.build);
 
 		FlxG.switchState(() -> new Scene1());
 	}
