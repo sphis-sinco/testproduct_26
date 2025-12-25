@@ -84,7 +84,7 @@ class ButtonCodeScene extends ButtonScene
 		{
 			for (btn in [fullResetButton, tempResetButton])
 			{
-				if (FlxG.mouse.overlaps(btn))
+				if (FlxG.mouse.overlaps(btn) && btn.visible)
 				{
 					btn.scale.set(0.9, 0.9);
 

@@ -52,7 +52,7 @@ class ButtonScene extends Scene
 		clickText.text = '' + buttonClick;
 		clickText.screenCenter();
 
-		if (!transitioning && FlxG.mouse.overlaps(button))
+		if (!transitioning && FlxG.mouse.overlaps(button) && button.visible)
 		{
 			button.scale.set(0.9, 0.9);
 

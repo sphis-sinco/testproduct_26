@@ -38,7 +38,7 @@ class ButtonRandomScene extends ButtonScene
 
 		this.clickText.screenCenter();
 
-		if (!transitioning && FlxG.mouse.overlaps(button))
+		if (!transitioning && FlxG.mouse.overlaps(button) && button.visible)
 		{
 			button.scale.set(0.9 - buttonScaleOffset, 0.9 - buttonScaleOffset);
 

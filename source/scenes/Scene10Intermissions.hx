@@ -12,7 +12,13 @@ class Scene10NormalIntermission extends ButtonScene
 		//                                  hm
 		super('You\'ve done well.', 'scene10ni');
 
+		clickText.visible = false;
 		button.visible = false;
+	}
+
+	override function create()
+	{
+		super.create();
 
 		FlxTimer.wait(2, function()
 		{
@@ -49,6 +55,12 @@ class Scene10ImpatientIntermission extends ButtonScene
 		super('...', 'scene10ii');
 
 		button.visible = false;
+		clickText.visible = false;
+	}
+
+	override function create()
+	{
+		super.create();
 
 		FlxTimer.wait(2, function()
 		{
