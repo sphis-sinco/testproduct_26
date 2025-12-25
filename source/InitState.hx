@@ -59,6 +59,8 @@ class InitState extends FlxState
 
 				'scene11n' => new Scene11Normal(),
 				'scene11i' => new Scene11Impatient(),
+				'scene12n' => new Scene12Normal(),
+				'scene12i' => new Scene12Impatient(),
 
 				'endn_M1' => new EndNormalV1(),
 				'endi_M1' => new EndImpatientV1()
