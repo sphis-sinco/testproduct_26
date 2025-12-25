@@ -20,10 +20,12 @@ class Scene4Normal extends ButtonScene
 		tempResetButton = new FlxSprite();
 		add(tempResetButton);
 		tempResetButton.makeGraphic(128, 128);
+        tempResetButton.color = FlxColor.GRAY;
 
 		fullResetButton = new FlxSprite();
-		add(tempResetButton);
+		add(fullResetButton);
 		fullResetButton.makeGraphic(128, 128);
+        fullResetButton.color = FlxColor.GRAY;
 
 		tempResetText = new FlxText(0, 0, 0, "Counter Reset", 16);
         add(tempResetText);
