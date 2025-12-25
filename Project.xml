@@ -91,4 +91,8 @@
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here-->
+
+	<define name="VERSION_INCLUDE_MAJOR" unless="debug || VERSION_DONT_INCLUDE_MAJOR"/>
+	<define name="VERSION_INCLUDE_MINOR" unless="debug || VERSION_DONT_INCLUDE_MINOR"/>
+	
 </project>
