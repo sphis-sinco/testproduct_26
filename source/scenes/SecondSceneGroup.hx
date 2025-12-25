@@ -1,5 +1,6 @@
 package scenes;
 
+import scenes.ThirdSceneGroup.Scene7Impatient;
 import scenes.ThirdSceneGroup.Scene7Normal;
 import backend.ButtonCodeScene;
 
@@ -76,7 +77,7 @@ class Scene6Impatient extends ButtonCodeScene
 
 		onCompletion.add(function()
 		{
-			switchScene(new EndImpatientV1());
+			switchScene(new Scene7Impatient());
 		});
 	}
 }
