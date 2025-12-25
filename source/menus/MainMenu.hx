@@ -25,7 +25,7 @@ class MainMenu extends MenuScene
 		title.y -= title.height * 2;
 
 		playBox = new FlxSprite();
-		playBox.makeGraphic(64, 64);
+		playBox.makeGraphic(#if debug 128, 128 #else 64, 64 #end);
 		add(playBox);
 		playBox.screenCenter();
 
@@ -41,6 +41,15 @@ class MainMenu extends MenuScene
 		super.update(elapsed);
 
 		playBox.color = (selection == 0) ? FlxColor.YELLOW : FlxColor.WHITE;
+
+		#if debug
+		if (FlxG.save.isBound)
+		{
+			play.text = "Play\n(" + FlxG.save.data.laststate + ")";
+			play.screenCenter(X);
+			play.y = playBox.getGraphicMidpoint().y - (play.height / 2);
+		}
+		#end
 
 		if (!transitioning)
 			for (button in [playBox])
