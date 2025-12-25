@@ -9,7 +9,8 @@ class Scene extends FlxState
 	{
 		super();
 
-		FlxG.save.data.laststate = laststate;
+		if (FlxG.save.isBound)
+			FlxG.save.data.laststate = laststate;
 	}
 
 	public function switchScene(scene:FlxState)
