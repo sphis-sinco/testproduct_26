@@ -1,5 +1,7 @@
 package scenes;
 
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
@@ -85,7 +87,17 @@ class Scene4Normal extends ButtonScene
 				{
 					if (btn == tempResetButton)
 					{
-						code.push(buttonClick);
+						if (code.length < 4)
+						{
+							code.push(buttonClick);
+						}
+						else
+						{
+							FlxTween.cancelTweensOf(codeText);
+							FlxTween.color(codeText, 1, FlxColor.RED, FlxColor.WHITE, {
+								ease: FlxEase.sineInOut
+							});
+						}
 						buttonClick = 0;
 					}
 					if (btn == fullResetButton)
