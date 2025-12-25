@@ -1,5 +1,7 @@
 package;
 
+import backend.Scene;
+import scenes.Scene4s.Scene4Impatient;
 import scenes.Scene4s.Scene4Normal;
 import scenes.FirstFewScenes.Scene3;
 import scenes.FirstFewScenes.Scene2;
@@ -10,6 +12,13 @@ import flixel.FlxState;
 
 class InitState extends FlxState
 {
+	public static var lastSceneToClass:Map<String, Scene> = [
+		'scene2' => Scene2,
+		'scene3' => Scene3,
+		'scene4n' => Scene4Normal,
+		'scene4i' => Scene4Impacient,
+	];
+
 	override public function create()
 	{
 		super.create();
@@ -32,17 +41,7 @@ class InitState extends FlxState
 			trace(FlxG.save.data.build);
 
 		trace('laststate: ' + FlxG.save.data.laststate);
-		switch (FlxG.save.data.laststate)
-		{
-			case 'scene4n':
-				FlxG.switchState(() -> new Scene4Normal());
-			case 'scene3':
-				FlxG.switchState(() -> new Scene3());
-			case 'scene2':
-				FlxG.switchState(() -> new Scene2());
 
-			default:
-				FlxG.switchState(() -> new Scene1());
-		}
+		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? Scene1));
 	}
 }

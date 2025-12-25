@@ -1,5 +1,6 @@
 package scenes;
 
+import scenes.Scene4s.Scene4Impatient;
 import scenes.Scene4s.Scene4Normal;
 import flixel.util.FlxColor;
 import flixel.FlxG;
@@ -59,7 +60,7 @@ class Scene3 extends ButtonScene
 
 					FlxTimer.wait(1, function()
 					{
-						switchScene(new Scene1());
+						switchScene(new Scene4Impatient());
 					});
 				}
 			}
