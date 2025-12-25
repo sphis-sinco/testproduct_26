@@ -14,6 +14,11 @@ class ButtonRandomScene extends ButtonScene
 
 		this.padding = padding;
 		this.buttonScaleOffset = buttonScaleOffset;
+
+		this.onLeftClick.add(function()
+		{
+			randomizeButtonPosition();
+		});
 	}
 
 	override function create()
@@ -25,11 +30,6 @@ class ButtonRandomScene extends ButtonScene
 		button.updateHitbox();
 
 		randomizeButtonPosition();
-
-		this.onLeftClick.add(function()
-		{
-			randomizeButtonPosition();
-		});
 	}
 
 	override function update(elapsed:Float)
