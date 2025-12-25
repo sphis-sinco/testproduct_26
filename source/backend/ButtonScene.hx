@@ -26,7 +26,8 @@ class ButtonScene extends Scene
 	public var clickText:FlxText;
 	public var button:FlxSprite;
 
-	public var onClick:FlxSignal = new FlxSignal();
+	public var onLeftClick:FlxSignal = new FlxSignal();
+	public var onRightClick:FlxSignal = new FlxSignal();
 
 	override function create()
 	{
@@ -65,7 +66,11 @@ class ButtonScene extends Scene
 			}
 			if (FlxG.mouse.justReleased)
 			{
-				onClick.dispatch();
+				onLeftClick.dispatch();
+			}
+			if (FlxG.mouse.justReleasedRight)
+			{
+				onRightClick.dispatch();
 			}
 		}
 		else
@@ -74,5 +79,10 @@ class ButtonScene extends Scene
 		}
 
 		button.screenCenter();
+	}
+
+	public static function decreaseButtonClick(buttonScene:ButtonScene)
+	{
+		buttonScene.buttonClick--;
 	}
 }

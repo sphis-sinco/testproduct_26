@@ -13,7 +13,7 @@ class Scene1 extends ButtonScene
 	{
 		super("Press the button", "scene1");
 
-		onClick.add(function()
+		onLeftClick.add(function()
 		{
 			switchScene(new Scene2());
 		});
@@ -27,7 +27,7 @@ class Scene2 extends ButtonScene
 	{
 		super("Press the button 10 times", "scene2");
 
-		onClick.add(function()
+		onLeftClick.add(function()
 		{
 			if (buttonClick == 10)
 				switchScene(new Scene3());
@@ -45,7 +45,7 @@ class Scene3 extends ButtonScene
 	{
 		super("Wait until green til click.", "scene3");
 
-		onClick.add(function()
+		onLeftClick.add(function()
 		{
 			if (greenButton)
 			{

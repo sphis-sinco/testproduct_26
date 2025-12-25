@@ -23,6 +23,7 @@ class ButtonCodeScene extends ButtonScene
 	{
 		this.targetCode = targetCode;
 		super(this.targetCode.join(" "), laststate, buttonSize);
+		onRightClick.add(() -> ButtonScene.decreaseButtonClick(this));
 
 		tempResetButton = new FlxSprite();
 		add(tempResetButton);
