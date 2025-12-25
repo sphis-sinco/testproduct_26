@@ -7,7 +7,7 @@ import flixel.text.FlxText;
 
 class ButtonScene extends Scene
 {
-	public var buttonClicks:Int = 0;
+	public var buttonClick:Int = 0;
 
 	override public function new(instruction:String, ?buttonSize:Int = 128)
 	{
@@ -22,7 +22,7 @@ class ButtonScene extends Scene
 	public var centerText:FlxText;
 	public var button:FlxSprite;
 
-	public var onClicks:FlxSignal = new FlxSignal();
+	public var onClick:FlxSignal = new FlxSignal();
 
 	override function create()
 	{
@@ -44,8 +44,8 @@ class ButtonScene extends Scene
 
 			if (FlxG.mouse.justReleased)
 			{
-				buttonClicks++;
-				onClicks.dispatch();
+				buttonClick++;
+				onClick.dispatch();
 			}
 		}
 		else
