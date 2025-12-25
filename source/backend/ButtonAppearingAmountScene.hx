@@ -26,7 +26,6 @@ class ButtonAppearingAmountScene extends ButtonScene
 		this.amount = amount;
 
 		amountText = new FlxText(0, 0, 0, '' + amount, 16);
-		add(amountText);
 		amountText.alpha = 0;
 
 		amountText.setPosition(FlxG.random.float(100, FlxG.width - amountText.width - 100), FlxG.random.float(100, FlxG.height - amountText.height - 100));
@@ -67,5 +66,7 @@ class ButtonAppearingAmountScene extends ButtonScene
 				ease: FlxEase.sineInOut
 			});
 		});
+		
+		add(amountText);
 	}
 }
