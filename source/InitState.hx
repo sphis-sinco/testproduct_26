@@ -1,5 +1,6 @@
 package;
 
+import scenes.Scene4s.Scene4Normal;
 import scenes.FirstFewScenes.Scene3;
 import scenes.FirstFewScenes.Scene2;
 import scenes.FirstFewScenes.Scene1;
@@ -33,6 +34,8 @@ class InitState extends FlxState
 		trace('laststate: ' + FlxG.save.data.laststate);
 		switch (FlxG.save.data.laststate)
 		{
+			case 'scene4n':
+				FlxG.switchState(() -> new Scene4Normal());
 			case 'scene3':
 				FlxG.switchState(() -> new Scene3());
 			case 'scene2':

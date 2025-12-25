@@ -1,5 +1,6 @@
 package scenes;
 
+import scenes.Scene4s.Scene4Normal;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
@@ -47,7 +48,7 @@ class Scene3 extends ButtonScene
 		{
 			if (greenButton)
 			{
-				switchScene(new Scene1());
+				switchScene(new Scene4Normal());
 			}
 			else
 			{
