@@ -1,5 +1,6 @@
 package;
 
+import backend.Version;
 import sys.io.File;
 import backend.Scene;
 import scenes.Scene4s.Scene4Impatient;
@@ -46,8 +47,7 @@ class InitState extends FlxState
 		#end
 		#end
 
-		if (FlxG.save.data.build != null)
-			trace(FlxG.save.data.build);
+		trace(Version.FULL);
 
 		trace('laststate: ' + FlxG.save.data.laststate);
 

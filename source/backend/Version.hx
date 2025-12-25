@@ -1,5 +1,6 @@
 package backend;
 
+import lime.utils.Assets;
 import flixel.FlxG;
 
 class Version
@@ -10,6 +11,7 @@ class Version
 	{
 		return 1;
 	}
+
 	public static var MINOR(get, never):Int;
 
 	static function get_MINOR():Int
@@ -21,11 +23,18 @@ class Version
 
 	static function get_BUILD():Int
 	{
-        if (FlxG.save.isBound)
-            if (FlxG.save.data.build != null)
-                return cast FlxG.save.data.build;
+		if (FlxG.save.isBound)
+			if (FlxG.save.data.build != null)
+				return cast FlxG.save.data.build;
 
-		return 0;
+		return try
+		{
+			Std.parseInt(Assets.getText('build.txt'));
+		}
+		catch (e)
+		{
+			0;
+		};
 	}
 
 	public static var FULL(get, never):String;
