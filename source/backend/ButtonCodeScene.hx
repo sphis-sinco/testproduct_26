@@ -95,15 +95,6 @@ class ButtonCodeScene extends ButtonScene
 					{
 						if (btn == tempResetButton)
 						{
-							if (code == targetCode)
-							{
-								FlxTween.cancelTweensOf(codeText);
-								FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
-									ease: FlxEase.sineInOut
-								});
-								onCompletion.dispatch();
-							}
-
 							if (code.length < targetCode.length)
 							{
 								code.push(buttonClick);
@@ -116,6 +107,15 @@ class ButtonCodeScene extends ButtonScene
 								});
 							}
 							buttonClick = 0;
+
+							if (code == targetCode)
+							{
+								FlxTween.cancelTweensOf(codeText);
+								FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
+									ease: FlxEase.sineInOut
+								});
+								onCompletion.dispatch();
+							}
 						}
 						if (btn == fullResetButton)
 						{
