@@ -5,6 +5,8 @@ import flixel.FlxState;
 
 class Scene extends FlxState
 {
+	public var transitioning:Bool = false;
+
 	override public function new(laststate:String)
 	{
 		super();
@@ -15,6 +17,7 @@ class Scene extends FlxState
 
 	public function switchScene(scene:FlxState)
 	{
+		transitioning = true;
 		FlxG.switchState(() -> scene);
 	}
 }

@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxSignal;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.FlxG;
@@ -18,6 +19,8 @@ class ButtonCodeScene extends ButtonScene
 	public var targetCode:Array<Int> = [];
 	public var code:Array<Int> = [];
 	public var codeText:FlxText;
+
+	public var onCompletion:FlxSignal = new FlxSignal();
 
 	override public function new(targetCode:Array<Int>, laststate:String, ?buttonSize:Int = 128)
 	{
@@ -79,45 +82,51 @@ class ButtonCodeScene extends ButtonScene
 		codeText.text = codeTextCode.join(" ");
 		codeText.screenCenter(X);
 
-		for (btn in [fullResetButton, tempResetButton])
-		{
-			if (FlxG.mouse.overlaps(btn))
+		if (!transitioning)
+			for (btn in [fullResetButton, tempResetButton])
 			{
-				btn.scale.set(0.9, 0.9);
+				if (FlxG.mouse.overlaps(btn))
+				{
+					btn.scale.set(0.9, 0.9);
 
-				if (FlxG.mouse.pressed)
-				{
-					btn.scale.set(0.8, 0.8);
+					if (FlxG.mouse.pressed)
+					{
+						btn.scale.set(0.8, 0.8);
+					}
+					if (FlxG.mouse.justReleased)
+					{
+						if (btn == tempResetButton)
+						{
+							if (code.length < targetCode.length)
+							{
+								code.push(buttonClick);
+
+								if (code == targetCode)
+								{
+									onCompletion.dispatch();
+								}
+							}
+							else
+							{
+								FlxTween.cancelTweensOf(codeText);
+								FlxTween.color(codeText, 1, FlxColor.RED, FlxColor.WHITE, {
+									ease: FlxEase.sineInOut
+								});
+							}
+							buttonClick = 0;
+						}
+						if (btn == fullResetButton)
+						{
+							code = [];
+							buttonClick = 0;
+						}
+					}
 				}
-				if (FlxG.mouse.justReleased)
+				else
 				{
-					if (btn == tempResetButton)
-					{
-						if (code.length < targetCode.length)
-						{
-							code.push(buttonClick);
-						}
-						else
-						{
-							FlxTween.cancelTweensOf(codeText);
-							FlxTween.color(codeText, 1, FlxColor.RED, FlxColor.WHITE, {
-								ease: FlxEase.sineInOut
-							});
-						}
-						buttonClick = 0;
-					}
-					if (btn == fullResetButton)
-					{
-						code = [];
-						buttonClick = 0;
-					}
+					btn.scale.set(1, 1);
 				}
 			}
-			else
-			{
-				btn.scale.set(1, 1);
-			}
-		}
 
 		tempResetButton.screenCenter();
 		fullResetButton.screenCenter();
