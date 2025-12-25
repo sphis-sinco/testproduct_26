@@ -28,9 +28,7 @@ class ButtonCodeScene extends ButtonScene
 		super(this.targetCode.join(" "), laststate, buttonSize);
 		onRightClick.add(() -> ButtonScene.decreaseButtonClick(this));
 
-		var tipText:FlxText = new FlxText(0, 0, 0, "You can right-click to revert the increase");
-		tipText.alpha = 0.2;
-		add(tipText);
+		topText.text += "You can right-click to revert the increase\n";
 
 		tempResetButton = new FlxSprite();
 		add(tempResetButton);
