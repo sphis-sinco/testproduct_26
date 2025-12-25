@@ -1,5 +1,8 @@
 package backend;
 
+#if sys
+import sys.io.File;
+#end
 import lime.utils.Assets;
 import flixel.FlxG;
 
@@ -25,11 +28,15 @@ class Version
 	{
 		if (FlxG.save.isBound)
 			if (FlxG.save.data.build != null)
-				return cast FlxG.save.data.build;
+				return FlxG.save.data.build;
 
 		return try
 		{
+			#if sys
+			Std.parseInt(File.getContent('build.txt'));
+			#else
 			Std.parseInt(Assets.getText('build.txt'));
+			#end
 		}
 		catch (e)
 		{

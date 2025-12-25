@@ -93,6 +93,7 @@ class InitState extends FlxState
 		var sysPath = Sys.programPath().substring(0, Sys.programPath().indexOf('\\export')).replace('\\', '/');
 		sysPath += '/build.txt';
 		File.saveContent(sysPath, '' + FlxG.save.data.build);
+		File.saveContent('build.txt', '' + FlxG.save.data.build);
 		#end
 		#end
 

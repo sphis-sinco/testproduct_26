@@ -36,7 +36,7 @@
 	
 	<source path="source" />
 	<assets path="assets" />
-	<assets path="build.txt" embed="true"/>
+	<assets path="build.txt"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
