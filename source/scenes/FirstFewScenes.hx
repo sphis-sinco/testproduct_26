@@ -27,7 +27,7 @@ class Scene2 extends ButtonScene
 		onClick.add(function()
 		{
 			if (buttonClick == 10)
-				switchScene(new Scene1());
+				switchScene(new Scene3());
 		});
 	}
 }
