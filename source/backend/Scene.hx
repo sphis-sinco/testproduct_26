@@ -14,7 +14,7 @@ class Scene extends FlxState
 	{
 		super();
 
-		if (FlxG.save.isBound)
+		if (FlxG.save.isBound && laststate != null)
 			FlxG.save.data.laststate = laststate;
 
 		topText = new FlxText(0, 0, 0, Version.FULL + "\n");

@@ -11,6 +11,7 @@ import scenes.FirstFewScenes.Scene1;
 import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxState;
+import menus.MainMenu;
 
 using StringTools;
 
@@ -41,7 +42,7 @@ class InitState extends FlxState
 
 		#if debug
 		if (FlxG.save.data.build == null)
-			FlxG.save.data.build = 0;
+				FlxG.save.data.build = 0;
 
 		FlxG.save.data.build++;
 
@@ -54,11 +55,12 @@ class InitState extends FlxState
 
 		trace(Version.FULL);
 
-		trace('laststate: ' + FlxG.save.data.laststate);
+		FlxG.switchState(() -> new MainMenu());
 	}
 
 	public static function switchToGameplay()
 	{
+		trace('laststate: ' + FlxG.save.data.laststate);
 		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? new Scene1()));
 	}
 }

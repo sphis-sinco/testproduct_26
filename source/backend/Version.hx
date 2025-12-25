@@ -5,23 +5,23 @@ import flixel.FlxG;
 
 class Version
 {
-	public static var MAJOR(get, never):Int;
+	public static var MAJOR(get, never):Null<Int>;
 
-	static function get_MAJOR():Int
+	static function get_MAJOR():Null<Int>
 	{
 		return 1;
 	}
 
-	public static var MINOR(get, never):Int;
+	public static var MINOR(get, never):Null<Int>;
 
-	static function get_MINOR():Int
+	static function get_MINOR():Null<Int>
 	{
 		return 0;
 	}
 
-	public static var BUILD(get, never):Int;
+	public static var BUILD(get, never):Null<Int>;
 
-	static function get_BUILD():Int
+	static function get_BUILD():Null<Int>
 	{
 		if (FlxG.save.isBound)
 			if (FlxG.save.data.build != null)
