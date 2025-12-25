@@ -1,8 +1,10 @@
 package;
 
-import scenes.ThirdSceneGroup;
 import scenes.v1.EndImpatientV1;
 import scenes.v1.EndNormalV1;
+import scenes.Scene10Intermissions;
+import scenes.ThirdSceneGroup;
+import scenes.FourthSceneGroup;
 import backend.Version;
 #if sys
 import sys.io.File;
@@ -51,6 +53,12 @@ class InitState extends FlxState
 				'scene9i' => new Scene9Impatient(),
 				'scene10n' => new Scene10Normal(),
 				'scene10i' => new Scene10Impatient(),
+
+				'scene10ni' => new Scene10NormalIntermission(),
+				'scene10ii' => new Scene10ImpatientIntermission(),
+
+				'scene11n' => new Scene11Normal(),
+				'scene11i' => new Scene11Impatient(),
 
 				'endn_M1' => new EndNormalV1(),
 				'endi_M1' => new EndImpatientV1()

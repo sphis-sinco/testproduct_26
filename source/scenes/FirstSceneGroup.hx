@@ -54,8 +54,7 @@ class Scene3 extends ButtonScene
 			{
 				if (centerText.text != incorrect)
 				{
-					centerText.text = incorrect;
-					centerText.screenCenter(X);
+					setCenterText(incorrect);
 
 					FlxTimer.wait(1, function()
 					{

@@ -1,5 +1,8 @@
 package scenes;
 
+import scenes.Scene10Intermissions.Scene10NormalIntermission;
+import scenes.FourthSceneGroup.Scene11Impatient;
+import scenes.FourthSceneGroup.Scene11Normal;
 import backend.ButtonRandomScene;
 
 class Scene7Normal extends ButtonRandomScene
@@ -90,7 +93,6 @@ class Scene9Impatient extends ButtonRandomScene
 	}
 }
 
-
 class Scene10Normal extends ButtonRandomScene
 {
 	override public function new()
@@ -100,7 +102,7 @@ class Scene10Normal extends ButtonRandomScene
 		onLeftClick.add(function()
 		{
 			if (buttonClick == 20)
-				switchScene(new EndNormalV1());
+				switchScene(new Scene10NormalIntermission());
 		});
 	}
 }
@@ -114,7 +116,7 @@ class Scene10Impatient extends ButtonRandomScene
 		onLeftClick.add(function()
 		{
 			if (buttonClick == 15)
-				switchScene(new EndImpatientV1());
+				switchScene(new Scene11Impatient());
 		});
 	}
 }

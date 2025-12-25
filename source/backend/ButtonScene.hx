@@ -91,4 +91,10 @@ class ButtonScene extends Scene
 	{
 		buttonScene.buttonClick--;
 	}
+
+	public function setCenterText(text:String)
+	{
+		centerText.text = text;
+		centerText.screenCenter(X);
+	}
 }
