@@ -71,7 +71,9 @@ class Scene3 extends ButtonScene
 	{
 		super.create();
 
-		FlxTimer.wait(FlxG.random.float(0, 60), function()
+		var wait = FlxG.random.float(0, 60);
+		trace('wait: $wait');
+		FlxTimer.wait(wait, function()
 		{
 			greenButton = true;
 			trace('gren');
