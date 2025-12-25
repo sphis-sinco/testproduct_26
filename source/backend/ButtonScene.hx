@@ -38,6 +38,7 @@ class ButtonScene extends Scene
 		centerText.color = FlxColor.WHITE;
 
 		button.screenCenter();
+		button.color = FlxColor.RED;
 
 		clickText.color = FlxColor.WHITE;
 	}
