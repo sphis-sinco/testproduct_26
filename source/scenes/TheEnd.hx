@@ -15,5 +15,7 @@ class TheEnd extends ButtonScene
 
             throw 'Bye.';
 		});
+
+		clickText.visible = false;
 	}
 }
