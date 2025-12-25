@@ -79,6 +79,9 @@ class ButtonScene extends Scene
 		}
 
 		button.screenCenter();
+
+		if (buttonClick < 0)
+			buttonClick = 0;
 	}
 
 	public static function decreaseButtonClick(buttonScene:ButtonScene)
