@@ -12,6 +12,9 @@ class ButtonRandomScene extends ButtonScene
 		super(instruction, laststate, buttonSize);
 		this.buttonScreenCenter = false;
 
+		if (padding < button.width)
+			padding = button.width;
+
 		this.padding = padding;
 		this.buttonScaleOffset = buttonScaleOffset;
 
@@ -53,5 +56,14 @@ class ButtonRandomScene extends ButtonScene
 	{
 		button.setPosition(FlxG.random.float(padding, (FlxG.width - (button.width * 2)) - padding),
 			FlxG.random.float(padding, (FlxG.height - (button.height * 2)) - padding));
+
+		if (button.x < 0)
+			button.x = 0;
+		if (button.x > FlxG.width - button.width * 2)
+			button.x = FlxG.width - button.width * 2;
+		if (button.y < 0)
+			button.y = 0;
+		if (button.y > FlxG.height - button.height * 2)
+			button.y = FlxG.height - button.height * 2;
 	}
 }
