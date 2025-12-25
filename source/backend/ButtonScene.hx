@@ -55,9 +55,12 @@ class ButtonScene extends Scene
 		{
 			button.scale.set(0.75, 0.75);
 
-			if (FlxG.mouse.justReleased)
+			if (FlxG.mouse.justPressed)
 			{
 				buttonClick++;
+			}
+			if (FlxG.mouse.justReleased)
+			{
 				onClick.dispatch();
 			}
 		}
