@@ -43,7 +43,7 @@ class Scene8Normal extends ButtonRandomScene
 		onLeftClick.add(function()
 		{
 			if (buttonClick == 4)
-				switchScene(new EndNormalV1());
+				switchScene(new Scene9Normal());
 		});
 	}
 }
@@ -57,6 +57,34 @@ class Scene8Impatient extends ButtonRandomScene
 		onLeftClick.add(function()
 		{
 			if (buttonClick == 2)
+				switchScene(new Scene9Impatient());
+		});
+	}
+}
+
+class Scene9Normal extends ButtonRandomScene
+{
+	override public function new()
+	{
+		super('Find the button, click it 16 times.', 'scene9n', 0, 0.8);
+
+		onLeftClick.add(function()
+		{
+			if (buttonClick == 16)
+				switchScene(new EndNormalV1());
+		});
+	}
+}
+
+class Scene9Impatient extends ButtonRandomScene
+{
+	override public function new()
+	{
+		super('Find the button, click it 6 times', 'scene9i', 560, 0.6);
+
+		onLeftClick.add(function()
+		{
+			if (buttonClick == 6)
 				switchScene(new EndImpatientV1());
 		});
 	}
