@@ -19,6 +19,8 @@ class InitState extends FlxState
 {
 	static var lastSceneToClass:Map<String, FlxState> = null;
 
+	public static var increasedBuild:Bool = false;
+
 	override public function create()
 	{
 		super.create();
@@ -42,9 +44,13 @@ class InitState extends FlxState
 
 		#if debug
 		if (FlxG.save.data.build == null)
-				FlxG.save.data.build = 0;
+			FlxG.save.data.build = 0;
 
-		FlxG.save.data.build++;
+		if (!increasedBuild)
+		{
+			increasedBuild = true;
+			FlxG.save.data.build++;
+		}
 
 		#if sys
 		var sysPath = Sys.programPath().substring(0, Sys.programPath().indexOf('\\export')).replace('\\', '/');
