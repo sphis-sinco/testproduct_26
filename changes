@@ -1,3 +1,4 @@
 - Fixed button random scene's buttons going out of bounds with padding
 - Build.txt is no longer embeded
 - Fixed the build number displays n shit, its weird to explain.
+- Save data fields are traced on the closing the window

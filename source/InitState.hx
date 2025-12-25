@@ -45,7 +45,7 @@ class InitState extends FlxState
 				'scene5i' => new Scene5Impatient(),
 				'scene6n' => new Scene6Normal(),
 				'scene6i' => new Scene6Impatient(),
-				
+
 				'scene7n' => new Scene7Normal(),
 				'scene7i' => new Scene7Impatient(),
 				'scene8n' => new Scene8Normal(),
@@ -76,6 +76,12 @@ class InitState extends FlxState
 
 		Application.current.onExit.add(function(l)
 		{
+			trace('Save');
+			for (field in Reflect.fields(FlxG.save.data))
+			{
+				trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
+			}
+
 			FlxG.save.flush();
 		});
 
@@ -98,7 +104,8 @@ class InitState extends FlxState
 		#end
 
 		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
-		if (state != null) FlxG.save.data.laststate = state;
+		if (state != null)
+			FlxG.save.data.laststate = state;
 
 		trace(Version.FULL);
 
