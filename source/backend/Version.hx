@@ -37,7 +37,7 @@ class Version
 		};
 	}
 
-	public static var SUFFIX(get,never):String;
+	public static var SUFFIX(get, never):String;
 
 	static function get_SUFFIX():String
 	{
@@ -52,6 +52,6 @@ class Version
 
 	static function get_FULL():String
 	{
-		return [#if VERSION_INCLUDE_MAJOR MAJOR, #end #if VERSION_INCLUDE_MINOR MINOR, #end BUILD].join('.') + SUFFIX;
+		return [#if VERSION_INCLUDE_MAJOR MAJOR, #end#if VERSION_INCLUDE_MINOR MINOR, #end BUILD].join('.') + SUFFIX;
 	}
 }

@@ -16,16 +16,21 @@ using StringTools;
 
 class InitState extends FlxState
 {
-	public var lastSceneToClass:Map<String, FlxState> = [
-		'scene2' => new Scene2(),
-		'scene3' => new Scene3(),
-		'scene4n' => new Scene4Normal(),
-		'scene4i' => new Scene4Impatient(),
-	];
+	static var lastSceneToClass:Map<String, FlxState> = null;
 
 	override public function create()
 	{
 		super.create();
+
+		if (lastSceneToClass == null)
+		{
+			lastSceneToClass = [
+				'scene2' => new Scene2(),
+				'scene3' => new Scene3(),
+				'scene4n' => new Scene4Normal(),
+				'scene4i' => new Scene4Impatient(),
+			];
+		}
 
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 
@@ -50,7 +55,10 @@ class InitState extends FlxState
 		trace(Version.FULL);
 
 		trace('laststate: ' + FlxG.save.data.laststate);
+	}
 
+	public static function switchToGameplay()
+	{
 		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? new Scene1()));
 	}
 }
