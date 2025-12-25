@@ -28,8 +28,6 @@ class ButtonCodeScene extends ButtonScene
 		super(this.targetCode.join(" "), laststate, buttonSize);
 		onRightClick.add(() -> ButtonScene.decreaseButtonClick(this));
 
-		topText.text += "You can right-click to revert the increase\n";
-
 		tempResetButton = new FlxSprite();
 		add(tempResetButton);
 		tempResetButton.makeGraphic(128, 128);
@@ -63,6 +61,13 @@ class ButtonCodeScene extends ButtonScene
 		codeText.screenCenter();
 		codeText.y -= codeText.height * 4;
 		add(codeText);
+	}
+
+	override function create()
+	{
+		super.create();
+
+		topText.text += "You can right-click to revert the increase\n";
 	}
 
 	override function update(elapsed:Float)

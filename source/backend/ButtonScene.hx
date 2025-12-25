@@ -31,6 +31,8 @@ class ButtonScene extends Scene
 
 	override function create()
 	{
+		super.create();
+
 		add(button);
 		add(centerText);
 		add(clickText);

@@ -16,6 +16,11 @@ class Scene extends FlxState
 
 		if (FlxG.save.isBound && laststate != null)
 			FlxG.save.data.laststate = laststate;
+	}
+
+	override function create()
+	{
+		super.create();
 
 		topText = new FlxText(0, 0, 0, Version.FULL + "\n");
 		topText.alpha = 0.2;

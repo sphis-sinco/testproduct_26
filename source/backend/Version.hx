@@ -27,10 +27,6 @@ class Version
 	static function get_BUILD():Null<Int>
 	{
 		if (FlxG.save.isBound)
-			trace('save: ' + FlxG.save.data.build);
-		trace('file: ' + #if sys Std.parseInt(File.getContent('build.txt')) #else Std.parseInt(Assets.getText('build.txt')) #end);
-
-		if (FlxG.save.isBound)
 			if (FlxG.save.data.build != null)
 				return FlxG.save.data.build;
 
