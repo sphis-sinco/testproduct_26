@@ -32,6 +32,7 @@ class ButtonScene extends Scene
 	{
 		add(button);
 		add(centerText);
+		add(clickText);
 
 		centerText.screenCenter();
 		centerText.y -= button.height;
