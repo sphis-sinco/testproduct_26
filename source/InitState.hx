@@ -15,6 +15,11 @@ class InitState extends FlxState
 
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 
+		Application.current.onExit.add(function(l)
+		{
+			FlxG.save.flush();
+		});
+
 		#if debug
 		if (FlxG.save.data.build == null)
 			FlxG.save.data.build = 0;
