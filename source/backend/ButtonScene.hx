@@ -15,6 +15,7 @@ class ButtonScene extends Scene
 		super(laststate);
 
 		centerText = new FlxText(0, 0, 0, instruction, 16);
+		setCenterText(instruction);
 
 		button = new FlxSprite();
 		button.makeGraphic(buttonSize, buttonSize);
@@ -94,6 +95,7 @@ class ButtonScene extends Scene
 
 	public function setCenterText(text:String)
 	{
+		FlxG.sound.play('assets/sfx/dialogue.wav');
 		centerText.text = text;
 		centerText.screenCenter(X);
 	}
