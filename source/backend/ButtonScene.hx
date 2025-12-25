@@ -15,7 +15,6 @@ class ButtonScene extends Scene
 		super(laststate);
 
 		centerText = new FlxText(0, 0, 0, instruction, 16);
-		setCenterText(instruction);
 
 		button = new FlxSprite();
 		button.makeGraphic(buttonSize, buttonSize);
@@ -39,6 +38,7 @@ class ButtonScene extends Scene
 		centerText.screenCenter();
 		centerText.y -= button.height;
 		centerText.color = FlxColor.WHITE;
+		setCenterText(centerText.text);
 
 		button.screenCenter();
 		button.color = FlxColor.RED;
