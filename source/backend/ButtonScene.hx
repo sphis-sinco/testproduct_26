@@ -53,8 +53,12 @@ class ButtonScene extends Scene
 
 		if (FlxG.mouse.overlaps(button))
 		{
-			button.scale.set(0.75, 0.75);
-
+			button.scale.set(0.9, 0.9);
+			
+			if (FlxG.mouse.pressed)
+			{
+				button.scale.set(0.8, 0.8);
+			}
 			if (FlxG.mouse.justPressed)
 			{
 				buttonClick++;
