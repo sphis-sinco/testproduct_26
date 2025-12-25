@@ -51,7 +51,7 @@ class ButtonRandomScene extends ButtonScene
 
 	public function randomizeButtonPosition()
 	{
-		button.setPosition(FlxG.random.float(padding, (FlxG.width - button.width) - padding),
-			FlxG.random.float(padding, (FlxG.height - button.height) - padding));
+		button.setPosition(FlxG.random.float(padding, (FlxG.width - (button.width * 2)) - padding),
+			FlxG.random.float(padding, (FlxG.height - (button.height * 2)) - padding));
 	}
 }
