@@ -1,5 +1,6 @@
 package;
 
+import sys.io.File;
 import backend.Scene;
 import scenes.Scene4s.Scene4Impatient;
 import scenes.Scene4s.Scene4Normal;
@@ -9,6 +10,8 @@ import scenes.FirstFewScenes.Scene1;
 import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxState;
+
+using StringTools;
 
 class InitState extends FlxState
 {
@@ -35,6 +38,12 @@ class InitState extends FlxState
 			FlxG.save.data.build = 0;
 
 		FlxG.save.data.build++;
+
+		#if sys
+		var sysPath = Sys.programPath().substring(0, Sys.programPath().indexOf('\\export')).replace('\\', '/');
+		sysPath += '/build.txt';
+		File.saveContent(sysPath, '' + FlxG.save.data.build);
+		#end
 		#end
 
 		if (FlxG.save.data.build != null)
