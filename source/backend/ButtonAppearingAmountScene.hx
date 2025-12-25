@@ -41,7 +41,9 @@ class ButtonAppearingAmountScene extends ButtonScene
 	{
 		super.create();
 
-		FlxTimer.wait(FlxG.random.float(waitMin, waitMax), function()
+		var wait = FlxG.random.float(waitMin, waitMax);
+		trace('wait: ' + wait);
+		FlxTimer.wait(wait, function()
 		{
 			FlxTween.tween(amountText, {alpha: 1}, 1, {
 				ease: FlxEase.sineInOut
