@@ -41,6 +41,10 @@ class Version
 
 	static function get_SUFFIX():String
 	{
+		#if PLAYTESTER
+		return ' [PLAYTESTER PROTOTYPE]';
+		#end
+		
 		#if debug
 		return ' [PROTOTYPE]';
 		#end
