@@ -1,5 +1,6 @@
 package;
 
+import haxe.macro.Compiler;
 import scenes.v1.EndImpatientV1;
 import scenes.v1.EndNormalV1;
 import scenes.Scene10Intermissions;
@@ -94,6 +95,9 @@ class InitState extends FlxState
 		File.saveContent(sysPath, '' + FlxG.save.data.build);
 		#end
 		#end
+
+		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
+		if (state != null) FlxG.save.data.laststate = state;
 
 		trace(Version.FULL);
 
