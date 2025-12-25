@@ -98,7 +98,9 @@
 	<define name="VERSION_INCLUDE_MINOR" unless="debug || VERSION_DONT_INCLUDE_MINOR"/>
 	
 	<icon path="assets/icons/icon-16x.png" size="16"/>
+	<icon path="assets/icons/icon-24x.png" size="24"/>
 	<icon path="assets/icons/icon-32x.png" size="32"/>
+	<icon path="assets/icons/icon-40x.png" size="40"/>
 	<icon path="assets/icons/icon-48x.png" size="48"/>
 	<icon path="assets/icons/icon-64x.png" size="64"/>
 
