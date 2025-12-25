@@ -24,6 +24,10 @@ class Scene extends FlxState
 
 	public function switchScene(scene:FlxState)
 	{
+		#if DONT_SWITCH
+		return;
+		#end
+
 		transitioning = true;
 		FlxG.switchState(() -> scene);
 	}
