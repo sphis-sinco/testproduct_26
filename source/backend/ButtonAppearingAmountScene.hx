@@ -37,7 +37,21 @@ class ButtonAppearingAmountScene extends ButtonScene
 				wasClever = true;
 
 			if (buttonClick == this.amount)
-				onCompletion.dispatch();
+			{
+				if (wasClever)
+					cleverScene();
+				else
+					onCompletion.dispatch();
+			}
+		});
+	}
+
+	public function cleverScene()
+	{
+		setCenterText('Clever.');
+		FlxTimer.wait(2, function()
+		{
+			onCompletion.dispatch();
 		});
 	}
 
