@@ -28,7 +28,6 @@ class Scene11Impatient extends ButtonAppearingAmountScene
 	}
 }
 
-
 class Scene12Normal extends ButtonAppearingAmountScene
 {
 	override public function new()
@@ -37,7 +36,7 @@ class Scene12Normal extends ButtonAppearingAmountScene
 
 		onCompletion.add(function()
 		{
-			switchScene(new EndNormalV1());
+			switchScene(new Scene13Normal());
 		});
 	}
 }
@@ -47,6 +46,58 @@ class Scene12Impatient extends ButtonAppearingAmountScene
 	override public function new()
 	{
 		super(7, 'Repeat', 'scene12i');
+
+		onCompletion.add(function()
+		{
+			switchScene(new Scene13Impatient());
+		});
+	}
+}
+
+class Scene13Normal extends ButtonAppearingAmountScene
+{
+	override public function new()
+	{
+		super(15, '', 'scene13n');
+
+		onCompletion.add(function()
+		{
+			switchScene(new Scene14Normal());
+		});
+	}
+}
+
+class Scene13Impatient extends ButtonAppearingAmountScene
+{
+	override public function new()
+	{
+		super(10, '', 'scene13i');
+
+		onCompletion.add(function()
+		{
+			switchScene(new Scene14Impatient());
+		});
+	}
+}
+
+class Scene14Normal extends ButtonAppearingAmountScene
+{
+	override public function new()
+	{
+		super(20, '', 'scene14n');
+
+		onCompletion.add(function()
+		{
+			switchScene(new EndNormalV1());
+		});
+	}
+}
+
+class Scene14Impatient extends ButtonAppearingAmountScene
+{
+	override public function new()
+	{
+		super(15, '', 'scene14i');
 
 		onCompletion.add(function()
 		{
