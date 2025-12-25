@@ -37,8 +37,8 @@ class Scene4Normal extends ButtonScene
 
         tempResetButton.screenCenter();
         fullResetButton.screenCenter();
-        tempResetButton.x -= tempResetButton.width * 1;
-        fullResetButton.x += fullResetButton.width * 1;
+        tempResetButton.x -= tempResetButton.width * 1.5;
+        fullResetButton.x += fullResetButton.width * 1.5;
 
         tempResetText.setPosition(tempResetButton.x - (tempResetText.width / 2), tempResetButton.y + tempResetButton.height + tempResetText.height);
         fullResetText.setPosition(fullResetButton.x + (fullResetText.width / 2), fullResetButton.y + fullResetButton.height + fullResetText.height);
