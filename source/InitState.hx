@@ -25,6 +25,10 @@ class InitState extends FlxState
 	{
 		super.create();
 
+		#if PLAYTESTER
+		increasedBuild = true;
+		#end
+
 		if (lastSceneToClass == null)
 		{
 			lastSceneToClass = [

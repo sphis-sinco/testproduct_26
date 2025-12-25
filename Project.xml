@@ -31,6 +31,8 @@
 
 	<set name="BUILD_DIR" value="export/release" />
 	<set name="BUILD_DIR" value="export/debug" if="debug"/>
+
+	<set name="BUILD_DIR" value="${BUILD_DIR}_PLAYTESTER" if="PLAYTESTER"/>
 	
 	<source path="source" />
 	<assets path="assets" />
