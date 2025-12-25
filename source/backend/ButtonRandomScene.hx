@@ -11,6 +11,7 @@ class ButtonRandomScene extends ButtonScene
 	{
 		super(instruction, laststate, buttonSize);
 		this.buttonScreenCenter = false;
+		this.clickText.visible = false;
 
 		this.padding = padding;
 		this.buttonScaleOffset = buttonScaleOffset;
