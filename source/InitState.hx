@@ -25,6 +25,7 @@ class InitState extends FlxState
 		if (FlxG.save.data.build != null)
 			trace(FlxG.save.data.build);
 
+		trace('laststate: ' + FlxG.save.data.laststate);
 		switch (FlxG.save.data.laststate)
 		{
 			case 'scene3':
@@ -33,7 +34,6 @@ class InitState extends FlxState
 				FlxG.switchState(() -> new Scene2());
 
 			default:
-				trace('laststate: ' + FlxG.save.data.laststate);
 				FlxG.switchState(() -> new Scene1());
 		}
 	}

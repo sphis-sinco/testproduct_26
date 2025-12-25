@@ -15,6 +15,7 @@ class Scene1 extends ButtonScene
 		{
 			switchScene(new Scene2());
 		});
+		clickText.visible = false;
 	}
 }
 
@@ -62,10 +63,13 @@ class Scene3 extends ButtonScene
 			}
 		});
 
-		FlxTimer.wait(FlxG.random.float(0, 15), function()
+		FlxTimer.wait(FlxG.random.float(0, 5), function()
 		{
 			greenButton = true;
+			trace('gren');
 			button.color = FlxColor.LIME;
 		});
+
+		clickText.visible = false;
 	}
 }
