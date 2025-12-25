@@ -1,5 +1,7 @@
 package;
 
+import scenes.v1.EndImpatientV1;
+import scenes.v1.EndNormalV1;
 import backend.Version;
 import sys.io.File;
 import backend.Scene;
@@ -36,6 +38,9 @@ class InitState extends FlxState
 				'scene3' => new Scene3(),
 				'scene4n' => new Scene4Normal(),
 				'scene4i' => new Scene4Impatient(),
+
+				'endn_M1' => new EndNormalV1(),
+				'endi_M1' => new EndImpatientV1()
 			];
 		}
 

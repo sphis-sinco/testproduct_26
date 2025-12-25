@@ -73,7 +73,7 @@ class Scene3 extends ButtonScene
 	{
 		super.create();
 
-		var wait = FlxG.random.float(0, 20);
+		var wait = FlxG.random.float(10, 20);
 		trace('wait: $wait');
 		FlxTimer.wait(wait, function()
 		{
