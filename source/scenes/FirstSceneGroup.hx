@@ -1,7 +1,6 @@
 package scenes;
 
-import scenes.Scene4s.Scene4Impatient;
-import scenes.Scene4s.Scene4Normal;
+import scenes.SecondSceneGroup;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
