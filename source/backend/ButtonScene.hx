@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxColor;
 import flixel.util.FlxSignal;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -17,9 +18,12 @@ class ButtonScene extends Scene
 
 		button = new FlxSprite();
 		button.makeGraphic(buttonSize, buttonSize);
+
+		clickText = new FlxText(0, 0, 0, "This is a citizens murder", 16);
 	}
 
 	public var centerText:FlxText;
+	public var clickText:FlxText;
 	public var button:FlxSprite;
 
 	public var onClick:FlxSignal = new FlxSignal();
@@ -31,12 +35,19 @@ class ButtonScene extends Scene
 
 		centerText.screenCenter();
 		centerText.y -= button.height;
+		centerText.color = FlxColor.WHITE;
+
 		button.screenCenter();
+
+		clickText.color = FlxColor.WHITE;
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		clickText.text = '' + buttonClick;
+		clickText.screenCenter();
 
 		if (FlxG.mouse.overlaps(button))
 		{
