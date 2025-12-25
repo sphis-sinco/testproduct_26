@@ -83,6 +83,8 @@ class InitState extends FlxState
 
 		trace(Version.FULL);
 
+		Application.current.window.title += ' (${Version.FULL})';
+
 		FlxG.switchState(() -> new MainMenu());
 	}
 
