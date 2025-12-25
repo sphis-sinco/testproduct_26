@@ -23,7 +23,6 @@ class MainMenu extends MenuScene
 		add(title);
 		title.screenCenter();
 		title.y -= title.height * 2;
-		title.color = FlxColor.WHITE;
 
 		playBox = new FlxSprite();
 		playBox.makeGraphic(64, 64);
@@ -34,6 +33,7 @@ class MainMenu extends MenuScene
 		add(play);
 		play.screenCenter(X);
 		play.y = playBox.getGraphicMidpoint().y - (play.height / 2);
+		play.color = FlxColor.BLACK;
 	}
 
 	override function update(elapsed:Float)
