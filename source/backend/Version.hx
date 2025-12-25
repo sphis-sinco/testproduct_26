@@ -37,10 +37,21 @@ class Version
 		};
 	}
 
+	public static var SUFFIX(get,never):String;
+
+	static function get_SUFFIX():String
+	{
+		#if debug
+		return ' [PROTOTYPE]';
+		#end
+
+		return '';
+	}
+
 	public static var FULL(get, never):String;
 
 	static function get_FULL():String
 	{
-		return [MAJOR, MINOR, BUILD].join('.');
+		return [MAJOR, MINOR, BUILD].join('.') + SUFFIX;
 	}
 }
