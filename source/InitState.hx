@@ -47,8 +47,8 @@ class InitState extends FlxState
 		});
 
 		#if debug
-		if (FlxG.save.data.build == null)
-			FlxG.save.data.build = 0;
+		FlxG.save.data.build = null;
+		FlxG.save.data.build = Version.BUILD;
 
 		if (!increasedBuild)
 		{
