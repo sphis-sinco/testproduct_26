@@ -81,6 +81,7 @@ class ButtonCodeScene extends ButtonScene
 		codeText.screenCenter(X);
 
 		if (!transitioning)
+		{
 			for (btn in [fullResetButton, tempResetButton])
 			{
 				if (FlxG.mouse.overlaps(btn))
@@ -107,15 +108,6 @@ class ButtonCodeScene extends ButtonScene
 								});
 							}
 							buttonClick = 0;
-
-							if (code == targetCode)
-							{
-								FlxTween.cancelTweensOf(codeText);
-								FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
-									ease: FlxEase.sineInOut
-								});
-								onCompletion.dispatch();
-							}
 						}
 						if (btn == fullResetButton)
 						{
@@ -130,9 +122,27 @@ class ButtonCodeScene extends ButtonScene
 				}
 			}
 
+			if (code.join('') == targetCode.join(''))
+			{
+				if (!completed)
+				{
+					completed = true;
+
+					FlxTween.cancelTweensOf(codeText);
+					FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
+						ease: FlxEase.sineInOut,
+						onComplete: function(tcb) {}
+					});
+				}
+				onCompletion.dispatch();
+			}
+		}
+
 		tempResetButton.screenCenter();
 		fullResetButton.screenCenter();
 		tempResetButton.x -= tempResetButton.width * 1.5;
 		fullResetButton.x += fullResetButton.width * 1.5;
 	}
+
+	public var completed:Bool = false;
 }
