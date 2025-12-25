@@ -1,7 +1,7 @@
 package scenes;
 
-import scenes.v1.EndNormalV1;
-import scenes.v1.EndImpatientV1;
+import scenes.Scene5s.Scene5Normal;
+import scenes.Scene5s.Scene5Impatient;
 import backend.ButtonCodeScene;
 
 class Scene4Normal extends ButtonCodeScene
@@ -12,7 +12,7 @@ class Scene4Normal extends ButtonCodeScene
 
 		onCompletion.add(function()
 		{
-			switchScene(new EndNormalV1());
+			switchScene(new Scene5Normal());
 		});
 	}
 }
@@ -25,7 +25,7 @@ class Scene4Impatient extends ButtonCodeScene
 
 		onCompletion.add(function()
 		{
-			switchScene(new EndImpatientV1());
+			switchScene(new Scene5Impatient());
 		});
 	}
 }

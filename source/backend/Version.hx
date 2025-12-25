@@ -44,7 +44,7 @@ class Version
 		#if PLAYTESTER
 		return ' [PLAYTESTER PROTOTYPE]';
 		#end
-		
+
 		#if debug
 		return ' [PROTOTYPE]';
 		#end

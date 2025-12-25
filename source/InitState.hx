@@ -1,5 +1,7 @@
 package;
 
+import scenes.Scene5s.Scene5Impatient;
+import scenes.Scene5s.Scene5Normal;
 import scenes.v1.EndImpatientV1;
 import scenes.v1.EndNormalV1;
 import backend.Version;
@@ -36,8 +38,12 @@ class InitState extends FlxState
 			lastSceneToClass = [
 				'scene2' => new Scene2(),
 				'scene3' => new Scene3(),
+				
 				'scene4n' => new Scene4Normal(),
 				'scene4i' => new Scene4Impatient(),
+				
+				'scene5n' => new Scene5Normal(),
+				'scene5i' => new Scene5Impatient(),
 
 				'endn_M1' => new EndNormalV1(),
 				'endi_M1' => new EndImpatientV1()
