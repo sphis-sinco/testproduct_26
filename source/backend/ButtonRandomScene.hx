@@ -10,6 +10,7 @@ class ButtonRandomScene extends ButtonScene
 	override public function new(instruction:String, laststate:String, ?padding:Float = 0, ?buttonScaleOffset:Float = 0, ?buttonSize:Int = 128)
 	{
 		super(instruction, laststate, buttonSize);
+		this.buttonScreenCenter = false;
 
 		this.padding = padding;
 		this.buttonScaleOffset = buttonScaleOffset;
