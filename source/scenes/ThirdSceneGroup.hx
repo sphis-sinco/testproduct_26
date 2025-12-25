@@ -80,7 +80,7 @@ class Scene9Impatient extends ButtonRandomScene
 {
 	override public function new()
 	{
-		super('Find the button, click it 6 times', 'scene9i', 560, 0.6);
+		super('Find the button, click it 6 times', 'scene9i', 280, 0.6);
 
 		onLeftClick.add(function()
 		{
