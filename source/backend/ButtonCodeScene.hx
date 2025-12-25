@@ -97,14 +97,18 @@ class ButtonCodeScene extends ButtonScene
 					{
 						if (btn == tempResetButton)
 						{
+							if (code == targetCode)
+							{
+								FlxTween.cancelTweensOf(codeText);
+								FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
+									ease: FlxEase.sineInOut
+								});
+								onCompletion.dispatch();
+							}
+
 							if (code.length < targetCode.length)
 							{
 								code.push(buttonClick);
-
-								if (code == targetCode)
-								{
-									onCompletion.dispatch();
-								}
 							}
 							else
 							{
