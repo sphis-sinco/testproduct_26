@@ -55,6 +55,11 @@ class MainMenu extends MenuScene
 		reset.color = FlxColor.BLACK;
 		reset.alignment = CENTER;
 
+		var reportbug = new FlxText(0, FlxG.height, 0, 'Anywhere: Press "G" to report a bug', 8);
+		reportbug.alpha = .6;
+		reportbug.y -= reportbug.height;
+		add(reportbug);
+
 		kojn = new Heart();
 		kojn.screenCenter(X);
 		kojn.y = kojn.height;

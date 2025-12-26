@@ -27,6 +27,14 @@ class Scene extends FlxState
 		add(topText);
 	}
 
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (FlxG.keys.justReleased.G)
+			FlxG.openURL('https://github.com/sphis-sinco/testproduct_26/issues/new');
+	}
+
 	public function switchScene(scene:FlxState)
 	{
 		#if DONT_SWITCH
