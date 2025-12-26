@@ -58,6 +58,86 @@ class Kojn extends MenuScene
 		});
 	}
 
+	public function firstTime()
+	{
+		FlxG.save.data.seenkojn = true;
+
+		waitTimeThenSetDialogue(.0, "h", function()
+		{
+			kojnMouth.setState('smile');
+		});
+		waitTimeThenSetDialogue(.1, "HH");
+		waitTimeThenSetDialogue(.1, "HAAA");
+		waitTimeThenSetDialogue(.2, "HAIIIIIIIIIIIIIIII");
+		waitTimeThenSetDialogue(.4, "There.");
+		waitTimeThenSetDialogue(1.8, "Ar");
+		waitTimeThenSetDialogue(.2, "r Y");
+		waitTimeThenSetDialogue(.1, "Are you perhaps");
+		waitTimeThenSetDialogue(.3, "r u with them? ($footnote_one)", function()
+		{
+			kojnMouth.setState('frown');
+		});
+		waitTimeThenSetDialogue(.01, "footnote_one=thetesters");
+		waitTimeThenSetDialogue(.05, "r u with them? ${1}");
+
+		var yes:FlxButton = new FlxButton(0, 0, "Yes", function()
+		{
+			if (FlxG.save.isBound)
+				if (FlxG.save.data.kojnmemories != null)
+					FlxG.save.data.kojnmemories.push('assosiated');
+
+			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
+			{
+				onEscape.dispatch();
+			});
+
+			FlxTween.tween(topText, {alpha: FlxG.random.float()}, 1, {
+				onUpdate: function(t)
+				{
+					if (FlxG.random.bool(5))
+						kojnMouth.x += FlxG.random.float(-25, 25) * FlxG.random.float(1, 10);
+					kojnMouth.alpha = FlxG.random.float(0.2, 1);
+				}
+			});
+		});
+		yes.screenCenter();
+		add(yes);
+		yes.y += yes.height * 2;
+		yes.visible = false;
+
+		var no:FlxButton = new FlxButton(0, 0, "No", function()
+		{
+			if (FlxG.save.isBound)
+				if (FlxG.save.data.kojnmemories != null)
+					FlxG.save.data.kojnmemories.push('unassosiated');
+			kojnMouth.setState('smile');
+
+			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
+			{
+				onEscape.dispatch();
+			});
+
+			FlxTween.tween(topText, {alpha: FlxG.random.float()}, 1, {
+				onUpdate: function(t)
+				{
+					if (FlxG.random.bool(5))
+						kojnMouth.x += FlxG.random.float(-10, 10) * FlxG.random.float(1, 10);
+					kojnMouth.alpha = FlxG.random.float(0.2, 1);
+				}
+			});
+		});
+		no.screenCenter();
+		add(no);
+		no.y += no.height * 4;
+		no.visible = false;
+
+		waitTimeThenSetDialogue(.5, "Are you with them?", function()
+		{
+			yes.visible = true;
+			no.visible = true;
+		});
+	}
+
 	public function makeScene()
 	{
 		var kojnmemories:Array<String> = FlxG.save.data?.kojnmemories;
@@ -65,83 +145,17 @@ class Kojn extends MenuScene
 		trace(kojnmemories.length);
 		if (!FlxG.save.data?.seenkojn || (kojnmemories == [] || kojnmemories == null || kojnmemories.length < 1))
 		{
-			FlxG.save.data.seenkojn = true;
-
-			waitTimeThenSetDialogue(.0, "h", function()
-			{
-				kojnMouth.setState('smile');
-			});
-			waitTimeThenSetDialogue(.1, "HH");
-			waitTimeThenSetDialogue(.2, "HAAA");
-			waitTimeThenSetDialogue(.5, "HAIIIIIIIIIIIIIIII");
-			waitTimeThenSetDialogue(.4, "There.");
-			waitTimeThenSetDialogue(1.8, "Ar");
-			waitTimeThenSetDialogue(.2, "r Y");
-			waitTimeThenSetDialogue(.1, "Are you perhaps");
-			waitTimeThenSetDialogue(.3, "r u with them? ($footnote_one)", function()
-			{
-				kojnMouth.setState('frown');
-			});
-			waitTimeThenSetDialogue(.01, "footnote_one=thetesters");
-			waitTimeThenSetDialogue(.05, "r u with them? ${1}");
-
-			var yes:FlxButton = new FlxButton(0, 0, "Yes", function()
-			{
-				if (FlxG.save.isBound)
-					if (FlxG.save.data.kojnmemories != null)
-						FlxG.save.data.kojnmemories.push('assosiated');
-
-				FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
-				{
-					onEscape.dispatch();
-				});
-
-				FlxTween.tween(topText, {alpha: FlxG.random.float()}, 1, {
-					onUpdate: function(t)
-					{
-						if (FlxG.random.bool(5))
-							kojnMouth.x += FlxG.random.float(-25, 25) * FlxG.random.float(1, 10);
-						kojnMouth.alpha = FlxG.random.float(0.2, 1);
-					}
-				});
-			});
-			yes.screenCenter();
-			add(yes);
-			yes.y += yes.height * 2;
-			yes.visible = false;
-
-			var no:FlxButton = new FlxButton(0, 0, "No", function()
-			{
-				if (FlxG.save.isBound)
-					if (FlxG.save.data.kojnmemories != null)
-						FlxG.save.data.kojnmemories.push('unassosiated');
-				kojnMouth.setState('smile');
-
-				FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
-				{
-					onEscape.dispatch();
-				});
-
-				FlxTween.tween(topText, {alpha: FlxG.random.float()}, 1, {
-					onUpdate: function(t)
-					{
-						if (FlxG.random.bool(5))
-							kojnMouth.x += FlxG.random.float(-10, 10) * FlxG.random.float(1, 10);
-						kojnMouth.alpha = FlxG.random.float(0.2, 1);
-					}
-				});
-			});
-			no.screenCenter();
-			add(no);
-			no.y += no.height * 4;
-			no.visible = false;
-
-			waitTimeThenSetDialogue(.5, "Are you with them?", function()
-			{
-				yes.visible = true;
-				no.visible = true;
-			});
+			firstTime();
 		}
-		else {}
+		else
+		{
+			if (kojnmemories.contains('unassosiated'))
+			{
+				kojnMouth.setState('smile');
+				setDialogue("Continue.");
+			}
+			else
+				setDialogue("...");
+		}
 	}
 }
