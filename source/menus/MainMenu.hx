@@ -71,8 +71,6 @@ class MainMenu extends MenuScene
 		kojn.flipY = true;
 		add(kojn);
 
-		kojn.visible = Save.beat?.v1 ?? false;
-
 		onEscape.add(function()
 		{
 			Application.current.window.close();
@@ -81,6 +79,8 @@ class MainMenu extends MenuScene
 		for (obj in members)
 			if (obj != topText)
 				obj.visible = !Save.beat.v2.liedAboutAssociation;
+		
+		kojn.visible = Save.beat?.v1 ?? false;
 	}
 
 	override function update(elapsed:Float)
