@@ -203,6 +203,7 @@ class InitState extends FlxState
 			'clickForKnowledge_tf' => new TheFailureKnowledge(),
 			'clickForKnowledge_bh' => new BeenHereKnowledge(),
 			'clickForKnowledge_ur' => new UsedRevertKnowledge(),
+			'clickForKnowledge_uf' => new YourFateKnowledge(),
 			'innocentCasualty' => new NothingButAnInnocentCasualty(),
 		];
 		reloadingScenes = false;

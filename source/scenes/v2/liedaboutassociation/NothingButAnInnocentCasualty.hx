@@ -13,7 +13,10 @@ class NothingButAnInnocentCasualty extends ButtonScene
 {
 	override public function new()
 	{
-		super('Click if you are nothing but an innocent casualty.', 'innocentCasualty');
+		if (Save.laststate == 'clickForKnowledge_uf' || Save.laststate == 'innocentCasualty')
+			super('You\'ll have to do it eventually.', 'innocentCasualty');
+		else
+			super('Click if you are nothing but an innocent casualty.', 'innocentCasualty');
 
 		onLeftClick.add(function()
 		{
@@ -29,13 +32,13 @@ class NothingButAnInnocentCasualty extends ButtonScene
 		super.create();
 
 		button.color = 0x282F52;
-	}
 
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
+		onEscape.add(function()
+		{
+			Save.laststate = "clickForKnowledge_uf";
+		});
 
-		// jonks time \ | /
+		// jonks speedrun time \ | /
 		FlxTimer.wait(49.78, function()
 		{
 			setCenterText('Wrong answer ' + InitState.usrName);
@@ -43,6 +46,14 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 			ending();
 		});
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (FlxG.keys.justReleased.R)
+			closeSubState();
 	}
 
 	public function ending()

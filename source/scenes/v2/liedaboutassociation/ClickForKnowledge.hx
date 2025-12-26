@@ -25,8 +25,11 @@ class Knowledge
 class ClickForKnowledge extends ButtonScene
 {
 	public static var theFailure:Knowledge = new Knowledge('Click if he told you about the failure');
+	
 	public static var usedRevert:Knowledge = new Knowledge('Click if you\'ve used the revert');
 	public static var beenHere:Knowledge = new Knowledge('Click if you\'ve been here before.');
+
+	public static var yourFate:Knowledge = new Knowledge('Click if you know your fate.');
 
 	override public function new(knowledge:Knowledge = null, ?append:String)
 	{
@@ -106,5 +109,31 @@ class BeenHereKnowledge extends ClickForKnowledge
 		ClickForKnowledge.beenHere.clicked = clicked;
 
 		switchScene(new NothingButAnInnocentCasualty());
+	}
+}
+
+
+class YourFateKnowledge extends ClickForKnowledge
+{
+	override public function new()
+	{
+		super(ClickForKnowledge.yourFate, '_uf');
+	}
+
+	override function clickedOrWaited(clicked:Bool = false)
+	{
+		ClickForKnowledge.yourFate.clicked = clicked;
+
+		if (!clicked)
+		{
+			setCenterText("What a Shame.");
+
+			FlxTimer.wait(1, function()
+			{
+				switchScene(new NothingButAnInnocentCasualty());
+			});
+		}
+		else
+			switchScene(new NothingButAnInnocentCasualty());
 	}
 }
