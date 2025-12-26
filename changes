@@ -5,3 +5,4 @@
     - Koji sends you to the Main Menu
     - The main menu closes the window
     - Gameplay Scenes send you to the main menu
+- Fixed softlock going above the desired button click amount in scenes

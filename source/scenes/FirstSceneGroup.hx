@@ -28,7 +28,7 @@ class Scene2 extends ButtonScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 10)
+			if (buttonClick >= 10)
 				switchScene(new Scene3());
 		});
 	}

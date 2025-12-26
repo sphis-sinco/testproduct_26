@@ -45,7 +45,7 @@ class Scene8Normal extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 4)
+			if (buttonClick >= 4)
 				switchScene(new Scene9Normal());
 		});
 	}
@@ -59,7 +59,7 @@ class Scene8Impatient extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 2)
+			if (buttonClick >= 2)
 				switchScene(new Scene9Impatient());
 		});
 	}
@@ -73,7 +73,7 @@ class Scene9Normal extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 16)
+			if (buttonClick >= 16)
 				switchScene(new Scene10Normal());
 		});
 	}
@@ -87,7 +87,7 @@ class Scene9Impatient extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 6)
+			if (buttonClick >= 6)
 				switchScene(new Scene10Impatient());
 		});
 	}
@@ -101,7 +101,7 @@ class Scene10Normal extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 20)
+			if (buttonClick >= 20)
 				switchScene(new Scene10NormalIntermission());
 		});
 	}
@@ -115,7 +115,7 @@ class Scene10Impatient extends ButtonRandomScene
 
 		onLeftClick.add(function()
 		{
-			if (buttonClick == 15)
+			if (buttonClick >= 15)
 				switchScene(new Scene11Impatient());
 		});
 	}
