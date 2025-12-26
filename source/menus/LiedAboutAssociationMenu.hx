@@ -22,6 +22,11 @@ class LiedAboutAssociationMenu extends MenuScene
 	{
 		super.create();
 
+		onEscape.add(function()
+		{
+			switchScene(new LiedAboutAssociationMenu());
+		});
+
 		var repent:FlxText = new FlxText(0, 0, FlxG.width, '', 16);
 		add(repent);
 
@@ -30,6 +35,7 @@ class LiedAboutAssociationMenu extends MenuScene
 		if (FlxG.random.bool(10))
 			repent.text = randomMSGS[FlxG.random.int(0, randomMSGS.length - 1)];
 
+		repent.alignment = CENTER;
 		repent.screenCenter();
 	}
 }
