@@ -1,5 +1,6 @@
 package;
 
+import backend.utils.ReflectUtils;
 import scenes.v2.liedaboutassociation.NothingButAnInnocentCasualty;
 import scenes.v2.liedaboutassociation.ClickForKnowledge;
 import scenes.v2.liedaboutassociation.FoundTheCode;
@@ -138,8 +139,11 @@ class InitState extends FlxState
 	public static function readSave()
 	{
 		trace('Save (${FlxG.save.path}/${FlxG.save.name})');
-		for (field in Reflect.fields(FlxG.save.data))
+
+		ReflectUtils.forFieldInObject(FlxG.save.data, function(field)
+		{
 			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
+		});
 	}
 
 	public static function reloadScenes()
@@ -189,6 +193,8 @@ class InitState extends FlxState
 			'foundTheCode' => new FoundTheCode(),
 			// 'clickForKnowledge' => new ClickForKnowledge(),
 			'clickForKnowledge_tf' => new TheFailureKnowledge(),
+			'clickForKnowledge_bh' => new UsedRevertKnowledge(),
+			'clickForKnowledge_ur' => new UsedRevertKnowledge(),
 			'innocentCasualty' => new NothingButAnInnocentCasualty(),
 		];
 		reloadingScenes = false;
