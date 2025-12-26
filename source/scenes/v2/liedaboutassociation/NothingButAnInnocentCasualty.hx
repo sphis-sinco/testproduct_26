@@ -67,6 +67,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 					randomShit.scale.set(FlxG.random.float(.1, 1.5), FlxG.random.float(.1, 1.5));
 					randomShit.updateHitbox();
 					randomShit.screenCenter();
+					randomShit.color = FlxColor.fromRGBFloat(FlxG.random.int(0, 1), FlxG.random.int(0, 1), FlxG.random.int(0, 1));
 				}
 			}
 		});
