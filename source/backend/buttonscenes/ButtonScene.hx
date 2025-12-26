@@ -5,6 +5,7 @@ import flixel.util.FlxSignal;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
+import menus.MainMenu;
 
 class ButtonScene extends Scene
 {
@@ -13,6 +14,11 @@ class ButtonScene extends Scene
 	override public function new(instruction:String, laststate:String, ?buttonSize:Int = 128)
 	{
 		super(laststate);
+
+		onEscape.add(function()
+		{
+			switchScene(new MainMenu());
+		});
 
 		centerText = new FlxText(0, 0, 0, instruction, 16);
 

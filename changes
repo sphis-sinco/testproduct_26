@@ -1,1 +1,7 @@
-- Added the ability to press "G" to report bugs on the github
+- End screens no longer close the game
+- Added Koji Menu
+    - You can access it on the main menu only after you've beat the v1 segment, a heart will then appear on the main menu
+- Scenes now have an `onEscape` signal (anything can happen when you press escape)
+    - Koji sends you to the Main Menu
+    - The main menu closes the window
+    - Gameplay Scenes send you to the main menu

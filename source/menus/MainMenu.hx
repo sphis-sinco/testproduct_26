@@ -1,5 +1,6 @@
 package menus;
 
+import lime.app.Application;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -67,6 +68,11 @@ class MainMenu extends MenuScene
 		add(kojn);
 
 		kojn.visible = FlxG.save.data?.beat?.v1 ?? false;
+
+		onEscape.add(function()
+		{
+			Application.current.window.close();
+		});
 	}
 
 	override function update(elapsed:Float)

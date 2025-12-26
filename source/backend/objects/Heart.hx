@@ -1,13 +1,9 @@
 package backend.objects;
 
-import flixel.FlxSprite;
-
-class Heart extends FlxSprite
+class Heart extends Sprite
 {
-	override public function new(x:Float = 0, y:Float = 0)
+	override public function new(?scaleOffset:Float = 0.0, x:Float = 0, y:Float = 0)
 	{
-		super(x, y);
-
-		loadGraphic('assets/heart.png');
+		super('assets/heart.png', scaleOffset, x, y);
 	}
 }

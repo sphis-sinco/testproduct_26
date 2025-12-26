@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxSignal;
 import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.FlxState;
@@ -9,6 +10,8 @@ class Scene extends FlxState
 	public var transitioning:Bool = false;
 
 	public var topText:FlxText;
+
+	public var onEscape:FlxSignal = new FlxSignal();
 
 	override public function new(laststate:String)
 	{
@@ -33,6 +36,8 @@ class Scene extends FlxState
 
 		if (FlxG.keys.justReleased.G)
 			FlxG.openURL('https://github.com/sphis-sinco/testproduct_26/issues/new');
+		if (FlxG.keys.justReleased.ESCAPE)
+			onEscape.dispatch();
 	}
 
 	public function switchScene(scene:FlxState)
