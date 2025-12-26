@@ -5,10 +5,10 @@ import backend.buttonscenes.ButtonCodeScene;
 
 class FindTheCode extends ButtonCodeScene
 {
-	override public function new(impatient:Bool)
+	override public function new(laststateAppend:String = '')
 	{
-		super([2, 0, 0, 5], 'findTheCode' + ((impatient) ? '_ir' : '_nr'));
+		super([2, 0, 0, 5], 'findTheCode' + laststateAppend);
 
-        centerText.visible = false;
+		centerText.visible = false;
 	}
 }

@@ -1,9 +1,7 @@
-- Added Koji Menu
-    - You can access it on the main menu only after you've beat the v1 segment, a heart will then appear on the main menu
-- Scenes now have an `onEscape` signal (anything can happen when you press escape)
-    - Koji sends you to the Main Menu
-    - The main menu closes the window
-    - Gameplay Scenes send you to the main menu
 - Fixed softlock going above the desired button click amount in scenes
 - You can now press "R" to reset your save (A confirmation will obviously be shown)
 - "Reset" is now "Revert to Level 1" on the main menu
+- ADDED MORE LEVELS
+    - Normal Route continued
+        - New Route: Unassosiated
+    - Impatient Route continued, shortly though, now's not the time for impatience, this is your second chance at not being impatient.

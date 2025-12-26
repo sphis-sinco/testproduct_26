@@ -40,6 +40,12 @@ class Kojn extends MenuScene
 		makeScene();
 	}
 
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+		kojnMouth.screenCenter();
+	}
+
 	public function setDialogue(text:String)
 	{
 		FlxG.sound.play('assets/kojn/dialogue.wav');
@@ -140,24 +146,73 @@ class Kojn extends MenuScene
 		});
 	}
 
+	public function tepro26()
+	{
+		Save.kojnmemories.push('testproduct_26');
+		waitTimeThenSetDialogue(0, "How long has it been?");
+		waitTimeThenSetDialogue(1, "I know I was the 5th late 2006.");
+		waitTimeThenSetDialogue(1, "* I am the 26th tester. It is the year 2025", function()
+		{
+			kojnMouth.setState('shocked');
+		});
+		waitTimeThenSetDialogue(2, "2025? 26th?");
+		waitTimeThenSetDialogue(1, "I've been stuck in this stupid product for 9 years.");
+		waitTimeThenSetDialogue(2, "* It's about to be 10. It's december");
+		waitTimeThenSetDialogue(2, "What!?", function()
+		{
+			FlxG.sound.play('assets/kojn/kickout.wav');
+			FlxTimer.wait(.3, function()
+			{
+				switchScene(new MainMenu());
+			});
+		});
+	}
+
 	public function makeScene()
 	{
 		if (!Save?.seenkojn || (Save.kojnmemories == [] || Save.kojnmemories == null || Save.kojnmemories.length < 1))
-		{
 			firstTime();
-		}
 		else
 		{
-			if (Save.laststate.startsWith('findTheCode_')) {}
+			if (Save.laststate == 'findTheCode')
+			{
+				waitTimeThenSetDialogue(0, "The year the the tests began.");
+				waitTimeThenSetDialogue(1, "That's all I know about the code...");
+				waitTimeThenSetDialogue(2, "I might be able to find a file assosiated with the code.");
+				waitTimeThenSetDialogue(3, "...", function()
+				{
+					kojnMouth.setState('blank');
+				});
+				waitTimeThenSetDialogue(FlxG.random.float(1, 4), "Found Something.", function()
+				{
+					kojnMouth.setState('smile');
+
+					Save.laststate = "findTheCode_vis";
+
+					FlxG.sound.play('assets/kojn/kickout.wav');
+					FlxTimer.wait(.3, function()
+					{
+						switchScene(new MainMenu());
+					});
+				});
+			}
 			else
 			{
 				if (Save.kojnmemories.contains('unassosiated'))
 				{
-					kojnMouth.setState('smile');
-					setDialogue("Continue.");
+					if (!Save.kojnmemories.contains('testproduct_26'))
+						tepro26();
+					else
+					{
+						kojnMouth.setState('smile');
+						waitTimeThenSetDialogue(1, "Continue.", function()
+						{
+							kojnMouth.setState('smile');
+						});
+					}
 				}
 				else
-					setDialogue("...");
+					waitTimeThenSetDialogue(1, "...");
 			}
 		}
 	}

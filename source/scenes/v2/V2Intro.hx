@@ -24,7 +24,7 @@ class V2Intro extends Scene
 			if (Save.kojnmemories.contains('assosiated'))
 				switchScene(new MainMenu());
 			else if (Save.kojnmemories.contains('unassosiated'))
-				switchScene(new FindTheCode(true));
+				switchScene(new FindTheCode());
 			else
 				switchScene(new MainMenu());
 		});
@@ -57,7 +57,7 @@ class V2Intro extends Scene
 			FlxTween.tween(obj, {alpha: 1}, 1);
 		}
 
-		FlxTimer.wait(2, function()
+		FlxTimer.wait((impatientRoute) ? 1 : 2, function()
 		{
 			topText.size *= 2;
 			topText.alpha = FlxG.random.float(.2);

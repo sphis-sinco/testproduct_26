@@ -1,5 +1,6 @@
 package;
 
+import scenes.v2.unassosiated.FindTheCodeVisibleCode;
 import scenes.v2.unassosiated.FindTheCode;
 import scenes.v2.V2Intro;
 import scenes.v1.Scene10Intermissions;
@@ -109,8 +110,8 @@ class InitState extends FlxState
 	public static function readSave()
 	{
 		trace('Save');
-		for (field in Reflect.fields(Save))
-			trace(' * $field : ' + Reflect.field(Save, field));
+		for (field in Reflect.fields(FlxG.save.data))
+			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
 	}
 
 	public static function reloadScenes()
@@ -154,8 +155,8 @@ class InitState extends FlxState
 			'M2intro_nr' => new V2Intro(false),
 			'M2intro_ir' => new V2Intro(true),
 
-			'findTheCode_nr' => new FindTheCode(false),
-			'findTheCode_ir' => new FindTheCode(true),
+			'findTheCode' => new FindTheCode(),
+			'findTheCode_vis' => new FindTheCodeVisibleCode(),
 		];
 		reloadingScenes = false;
 	}

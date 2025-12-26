@@ -28,12 +28,12 @@ class Save
 	static function set_beat(set:Dynamic):Dynamic
 		return setField('beat', set);
 
-	public static var seenkojn(get, set):Bool;
+	public static var seenkojn(get, set):Null<Bool>;
 
-	static function get_seenkojn():Bool
+	static function get_seenkojn():Null<Bool>
 		return getField('seenkojn');
 
-	static function set_seenkojn(set:Bool):Bool
+	static function set_seenkojn(set:Null<Bool>):Null<Bool>
 		return setField('seenkojn', set);
 
 	public static var kojnmemories(get, set):Array<String>;
@@ -52,11 +52,11 @@ class Save
 	static function set_laststate(set:String):String
 		return setField('laststate', set);
 
-	public static var build(get, set):Int;
+	public static var build(get, set):Null<Int>;
 
-	static function get_build():Int
+	static function get_build():Null<Int>
 		return getField('build');
 
-	static function set_build(set:Int):Int
+	static function set_build(set:Null<Int>):Null<Int>
 		return setField('build', set);
 }

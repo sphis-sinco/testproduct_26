@@ -53,5 +53,10 @@ class EndImpatientV1 extends EndV1
 	override public function new()
 	{
 		super('Game over.\nConsidering your impatience I doupt you had fun.', 'endi_M1', true);
+
+		onLeftClick.add(function()
+		{
+			topText.text = '{overwrite_value="Consider this a second chance"}';
+		});
 	}
 }
