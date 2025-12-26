@@ -35,6 +35,7 @@ class ClickForKnowledge extends ButtonScene
 		{
 			clickedOrWaited(true);
 		});
+        clickText.visible = false;
 	}
 
 	override function create()

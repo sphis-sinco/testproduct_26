@@ -207,6 +207,28 @@ class Kojn extends MenuScene
 		});
 	}
 
+	public function tepro5()
+	{
+		Save.kojnmemories.push('testproduction_5');
+
+		waitTimeThenSetDialogue(0, '... put me in here.');
+		waitTimeThenSetDialogue(2, 'Asked me to press the button.');
+		waitTimeThenSetDialogue(1, 'Complained at my "impatience"');
+		waitTimeThenSetDialogue(2, 'But then');
+		waitTimeThenSetDialogue(1, 'I broke the machine', function()
+		{
+			kojnMouth.setState('smile');
+		});
+		waitTimeThenSetDialogue(3, 'Wait until I tell you how', function()
+		{
+			FlxG.sound.play('assets/kojn/kickout.wav');
+			FlxTimer.wait(.9, function()
+			{
+				switchScene(new MainMenu());
+			});
+		});
+	}
+
 	public function makeScene()
 	{
 		if (!Save?.seenkojn || (Save.kojnmemories == [] || Save.kojnmemories == null || Save.kojnmemories.length < 1))
@@ -221,6 +243,8 @@ class Kojn extends MenuScene
 					foundTheCode();
 				else if (!Save.kojnmemories.contains('testproduct_26'))
 					tepro26();
+				else if (!Save.kojnmemories.contains('testproduct_5'))
+					tepro5();
 				else
 				{
 					kojnMouth.setState('smile');
