@@ -12,14 +12,14 @@ class Version
 
 	static function get_MAJOR():Null<Int>
 	{
-		return 1;
+		return 2;
 	}
 
 	public static var MINOR(get, never):Null<Int>;
 
 	static function get_MINOR():Null<Int>
 	{
-		return 3;
+		return 0;
 	}
 
 	public static var BUILD(get, never):Null<Int>;
