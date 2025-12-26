@@ -103,5 +103,6 @@
 	<icon path="assets/icons/icon-40x.png" size="40"/>
 	<icon path="assets/icons/icon-48x.png" size="48"/>
 	<icon path="assets/icons/icon-64x.png" size="64"/>
+	<icon path=".dev/thumbnail2.png"/>
 
 </project>

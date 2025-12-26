@@ -36,7 +36,7 @@ class MainMenu extends MenuScene
 		title.y -= title.height * 2;
 
 		playBox = new FlxSprite();
-		playBox.makeGraphic(#if debug 128, 128 #else 64, 64 #end);
+		playBox.makeGraphic(128, 128);
 		add(playBox);
 		playBox.screenCenter();
 		playBox.x -= playBox.width;
@@ -47,7 +47,7 @@ class MainMenu extends MenuScene
 		play.alignment = CENTER;
 
 		resetBox = new FlxSprite();
-		resetBox.makeGraphic(#if debug 128, 128 #else 64, 64 #end);
+		resetBox.makeGraphic(128, 128);
 		add(resetBox);
 		resetBox.screenCenter();
 		resetBox.x += resetBox.width;

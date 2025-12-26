@@ -1,5 +1,6 @@
 package;
 
+import scenes.v2.liedaboutassociation.NothingButAnInnocentCasualty;
 import scenes.v2.liedaboutassociation.ClickForKnowledge;
 import scenes.v2.liedaboutassociation.FoundTheCode;
 import scenes.v2.unassociated.FindTheCodeVisibleCode;
@@ -31,6 +32,8 @@ class InitState extends FlxState
 	public static var reloadingScenes:Bool = false;
 
 	public static var lastTime:Date;
+
+	public static var usrName = #if windows Sys.environment()["USERNAME"]; #elseif (linux || macos) Sys.environment()["USER"]; #else 'foad' #end
 
 	override public function create()
 	{
@@ -83,7 +86,14 @@ class InitState extends FlxState
 			Save.kojnmemories = [];
 
 		Save.beat.v1 ??= false;
-		Save.beat.v2 ??= false;
+
+		if (!Std.isOfType(Save.beat.v2, Dynamic))
+			Save.beat.v2 = null;
+
+		Save.beat.v2 ??= {};
+		Save.beat.v2.associated ??= false;
+		Save.beat.v2.unassociated ??= false;
+		Save.beat.v2.liedAboutAssociation ??= false;
 
 		/*
 			if (Save.firsttime == null)
@@ -170,6 +180,7 @@ class InitState extends FlxState
 			'foundTheCode' => new FoundTheCode(),
 			// 'clickForKnowledge' => new ClickForKnowledge(),
 			'clickForKnowledge_tf' => new TheFailureKnowledge(),
+			'innocentCasualty' => new NothingButAnInnocentCasualty(),
 		];
 		reloadingScenes = false;
 
