@@ -1,4 +1,4 @@
-package scenes;
+package scenes.v1;
 
 import backend.buttonscenes.ButtonAppearingAmountScene;
 

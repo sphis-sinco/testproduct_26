@@ -1,6 +1,6 @@
-package scenes;
+package scenes.v1;
 
-import scenes.SecondSceneGroup;
+import scenes.v1.SecondSceneGroup;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.util.FlxTimer;

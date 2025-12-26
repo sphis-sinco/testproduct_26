@@ -1,7 +1,7 @@
-package scenes;
+package scenes.v1;
 
-import scenes.FourthSceneGroup.Scene11Impatient;
-import scenes.FourthSceneGroup.Scene11Normal;
+import scenes.v1.FourthSceneGroup.Scene11Impatient;
+import scenes.v1.FourthSceneGroup.Scene11Normal;
 import flixel.util.FlxTimer;
 import backend.buttonscenes.ButtonScene;
 

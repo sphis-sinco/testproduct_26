@@ -1,17 +1,17 @@
 package;
 
-import haxe.macro.Compiler;
-import scenes.v1.EndImpatientV1;
+import scenes.v1.Scene10Intermissions;
+import scenes.v1.FirstSceneGroup;
+import scenes.v1.SecondSceneGroup;
+import scenes.v1.ThirdSceneGroup;
+import scenes.v1.FourthSceneGroup;
 import scenes.v1.EndNormalV1;
-import scenes.Scene10Intermissions;
-import scenes.ThirdSceneGroup;
-import scenes.FourthSceneGroup;
+import scenes.v1.EndImpatientV1;
+import haxe.macro.Compiler;
 import backend.Version;
 #if sys
 import sys.io.File;
 #end
-import scenes.FirstSceneGroup;
-import scenes.SecondSceneGroup;
 import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxState;

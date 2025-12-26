@@ -1,4 +1,3 @@
-- End screens no longer close the game
 - Added Koji Menu
     - You can access it on the main menu only after you've beat the v1 segment, a heart will then appear on the main menu
 - Scenes now have an `onEscape` signal (anything can happen when you press escape)

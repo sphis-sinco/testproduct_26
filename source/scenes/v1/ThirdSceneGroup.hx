@@ -1,8 +1,8 @@
-package scenes;
+package scenes.v1;
 
-import scenes.Scene10Intermissions.Scene10NormalIntermission;
-import scenes.FourthSceneGroup.Scene11Impatient;
-import scenes.FourthSceneGroup.Scene11Normal;
+import scenes.v1.Scene10Intermissions.Scene10NormalIntermission;
+import scenes.v1.FourthSceneGroup.Scene11Impatient;
+import scenes.v1.FourthSceneGroup.Scene11Normal;
 import backend.buttonscenes.ButtonRandomScene;
 
 class Scene7Normal extends ButtonRandomScene

@@ -1,7 +1,7 @@
-package scenes;
+package scenes.v1;
 
-import scenes.ThirdSceneGroup.Scene7Impatient;
-import scenes.ThirdSceneGroup.Scene7Normal;
+import scenes.v1.ThirdSceneGroup.Scene7Impatient;
+import scenes.v1.ThirdSceneGroup.Scene7Normal;
 import backend.buttonscenes.ButtonCodeScene;
 
 class Scene4Normal extends ButtonCodeScene
