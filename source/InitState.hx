@@ -74,16 +74,15 @@ class InitState extends FlxState
 
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 
-		Application.current.onExit.add(function(l)
+		var onExit = function(l)
 		{
-			trace('Save');
-			for (field in Reflect.fields(FlxG.save.data))
-			{
-				trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
-			}
+			readSave();
 
 			FlxG.save.flush();
-		});
+		};
+
+		if (!Application.current.onExit.has(onExit))
+			Application.current.onExit.add(onExit);
 
 		#if debug
 		FlxG.save.data.build = null;
@@ -130,6 +129,7 @@ class InitState extends FlxState
 
 		Application.current.window.title += ' (${Version.FULL})';
 
+		readSave();
 		FlxG.switchState(() -> new MainMenu());
 	}
 
@@ -137,5 +137,12 @@ class InitState extends FlxState
 	{
 		trace('laststate: ' + FlxG.save.data.laststate);
 		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? new Scene1()));
+	}
+
+	public static function readSave()
+	{
+		trace('Save');
+		for (field in Reflect.fields(FlxG.save.data))
+			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
 	}
 }
