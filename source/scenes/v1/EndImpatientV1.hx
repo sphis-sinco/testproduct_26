@@ -1,5 +1,6 @@
 package scenes.v1;
 
+import flixel.FlxG;
 import lime.app.Application;
 import backend.buttonscenes.ButtonScene;
 
@@ -15,5 +16,7 @@ class EndImpatientV1 extends ButtonScene
 		});
 
 		clickText.visible = false;
+		
+		FlxG.save.data.beat.v1 = true;
 	}
 }

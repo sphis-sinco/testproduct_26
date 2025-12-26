@@ -103,6 +103,9 @@ class InitState extends FlxState
 		#end
 		#end
 
+		if (FlxG.save.data.beat == null)
+			FlxG.save.data.beat = {};
+
 		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
 		if (state != null)
 			FlxG.save.data.laststate = state;
