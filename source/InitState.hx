@@ -159,5 +159,7 @@ class InitState extends FlxState
 			'findTheCode_vis' => new FindTheCodeVisibleCode(),
 		];
 		reloadingScenes = false;
+
+		trace('Scene count: ' + Reflect.fields(lastSceneToClass).length + 1);
 	}
 }
