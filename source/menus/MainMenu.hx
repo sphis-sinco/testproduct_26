@@ -116,7 +116,7 @@ class MainMenu extends MenuScene
 						if (button == resetBox)
 							Save.laststate = null;
 
-						if (button == kojn)
+						if (button == kojn || (button == resetBox && Save.seenkojn && !Save.kojnmemories.contains('liedaboutassociation')))
 						{
 							transitioning = true;
 							FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
@@ -124,7 +124,10 @@ class MainMenu extends MenuScene
 								this.topText.text = 'you cant.';
 								FlxTimer.wait(.1, function()
 								{
-									switchScene(new Kojn());
+									if (button == resetBox)
+										FlxG.resetState();
+									else
+										switchScene(new Kojn());
 								});
 							});
 
