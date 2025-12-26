@@ -38,6 +38,11 @@ class Scene extends FlxState
 			FlxG.openURL('https://github.com/sphis-sinco/testproduct_26/issues/new');
 		if (FlxG.keys.justReleased.ESCAPE)
 			onEscape.dispatch();
+		if (FlxG.keys.justReleased.R)
+		{
+			trace('<user> I dont like this anymore');
+			// FlxG.resetGame();
+		}
 	}
 
 	public function switchScene(scene:FlxState)

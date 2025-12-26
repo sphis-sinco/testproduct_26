@@ -109,6 +109,9 @@ class InitState extends FlxState
 		if (FlxG.save.data.seenkojn == null)
 			FlxG.save.data.seenkojn = false;
 
+		if (FlxG.save.data.kojnmemories == null)
+			FlxG.save.data.kojnmemories = [];
+
 		FlxG.save.data.beat.v1 ??= false;
 		FlxG.save.data.beat.v2 ??= false;
 
