@@ -106,6 +106,13 @@ class InitState extends FlxState
 		if (FlxG.save.data.beat == null)
 			FlxG.save.data.beat = {};
 
+		/*
+			if (FlxG.save.data.firsttime == null)
+				FlxG.save.data.firsttime = true;
+			else
+				FlxG.save.data.firsttime = false;
+		 */
+
 		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
 		if (state != null)
 			FlxG.save.data.laststate = state;
