@@ -112,9 +112,15 @@ class MainMenu extends MenuScene
 								{
 									if (FlxG.random.bool(80))
 									{
-										title.y += FlxG.random.float(-10, 10);
-										playBox.y += FlxG.random.float(-10, 10);
-										resetBox.y += FlxG.random.float(-10, 10);
+										for (obj in members)
+										{
+											if (obj != topText)
+											{
+												Reflect.setProperty(obj, 'y',
+													Reflect?.getProperty(obj, 'y') ?? 0 + FlxG.random.float(-10, 10) * FlxG.random.float(1, 10));
+												Reflect.setProperty(obj, 'alpha', FlxG.random.float(0.2, 1));
+											}
+										}
 										topText.text = randomKojnText();
 									}
 								}
