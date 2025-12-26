@@ -30,6 +30,8 @@ class InitState extends FlxState
 	public static var increasedBuild:Bool = false;
 	public static var reloadingScenes:Bool = false;
 
+	public static var startingTime:Date;
+
 	override public function create()
 	{
 		super.create();
@@ -101,6 +103,9 @@ class InitState extends FlxState
 
 		readSave();
 		FlxG.switchState(() -> new MainMenu());
+
+		if (startingTime == null)
+			startingTime = Date.now();
 	}
 
 	public static function switchToGameplay()

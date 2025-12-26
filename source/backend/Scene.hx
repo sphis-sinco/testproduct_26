@@ -52,6 +52,7 @@ class Scene extends FlxState
 		return;
 		#end
 
+		trace('scene swap at ${(Date.now().getTime() - InitState.startingTime.getTime()) / 1000}s');
 		transitioning = true;
 		FlxG.switchState(() -> scene);
 	}
