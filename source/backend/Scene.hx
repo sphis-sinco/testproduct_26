@@ -18,7 +18,7 @@ class Scene extends FlxState
 	{
 		super();
 
-		if (FlxG.save.isBound && laststate != null)
+		if (FlxG.save.isBound && laststate != null && !InitState.reloadingScenes)
 			FlxG.save.data.laststate = laststate;
 	}
 

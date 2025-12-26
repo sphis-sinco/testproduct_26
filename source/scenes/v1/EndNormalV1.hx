@@ -1,5 +1,6 @@
 package scenes.v1;
 
+import haxe.crypto.Sha256;
 import flixel.util.FlxColor;
 import menus.MainMenu;
 import flixel.FlxG;
@@ -18,24 +19,20 @@ class EndNormalV1 extends ButtonScene
 				if (FlxG.save.data.beat != null)
 					FlxG.save.data.beat.v1 = true;
 
-			var repeat:Int = FlxG.random.int(1, 10);
-
-			while (repeat > 0)
+			transitioning = true;
+			FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
 			{
-				centerText.x += FlxG.random.int(-10, 10);
-				centerText.y += FlxG.random.int(-10, 10);
-				centerText.blend = MULTIPLY;
-				centerText.color = FlxColor.fromRGBFloat(FlxG.random.float(0, 1), FlxG.random.float(0, 1), FlxG.random.float(0, 1), FlxG.random.float());
-				add(centerText.clone());
-				repeat--;
-
-				if (repeat == 0)
-				{
-					switchScene(new MainMenu());
-				}
-			}
+				switchScene(new MainMenu());
+			});
 		});
 
 		clickText.visible = false;
+	}
+
+	override function update(elapsed:Float) {
+		super.update(elapsed);
+
+		if (transitioning)
+			setCenterText(Sha256.encode('' + FlxG.random.int(0,255)));
 	}
 }

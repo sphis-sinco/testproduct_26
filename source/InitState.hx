@@ -24,6 +24,7 @@ class InitState extends FlxState
 	static var lastSceneToClass:Map<String, FlxState> = null;
 
 	public static var increasedBuild:Bool = false;
+	public static var reloadingScenes:Bool = false;
 
 	override public function create()
 	{
@@ -33,44 +34,7 @@ class InitState extends FlxState
 		increasedBuild = true;
 		#end
 
-		if (lastSceneToClass == null)
-		{
-			lastSceneToClass = [
-				'scene2' => new Scene2(),
-				'scene3' => new Scene3(),
-
-				'scene4n' => new Scene4Normal(),
-				'scene4i' => new Scene4Impatient(),
-				'scene5n' => new Scene5Normal(),
-				'scene5i' => new Scene5Impatient(),
-				'scene6n' => new Scene6Normal(),
-				'scene6i' => new Scene6Impatient(),
-
-				'scene7n' => new Scene7Normal(),
-				'scene7i' => new Scene7Impatient(),
-				'scene8n' => new Scene8Normal(),
-				'scene8i' => new Scene8Impatient(),
-				'scene9n' => new Scene9Normal(),
-				'scene9i' => new Scene9Impatient(),
-				'scene10n' => new Scene10Normal(),
-				'scene10i' => new Scene10Impatient(),
-
-				'scene10ni' => new Scene10NormalIntermission(),
-				'scene10ii' => new Scene10ImpatientIntermission(),
-
-				'scene11n' => new Scene11Normal(),
-				'scene11i' => new Scene11Impatient(),
-				'scene12n' => new Scene12Normal(),
-				'scene12i' => new Scene12Impatient(),
-				'scene13n' => new Scene13Normal(),
-				'scene13i' => new Scene13Impatient(),
-				'scene14n' => new Scene14Normal(),
-				'scene14i' => new Scene14Impatient(),
-
-				'endn_M1' => new EndNormalV1(),
-				'endi_M1' => new EndImpatientV1()
-			];
-		}
+		reloadScenes();
 
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 
@@ -135,6 +99,8 @@ class InitState extends FlxState
 
 	public static function switchToGameplay()
 	{
+		reloadScenes();
+
 		trace('laststate: ' + FlxG.save.data.laststate);
 		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? new Scene1()));
 	}
@@ -144,5 +110,46 @@ class InitState extends FlxState
 		trace('Save');
 		for (field in Reflect.fields(FlxG.save.data))
 			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
+	}
+
+	public static function reloadScenes()
+	{
+		reloadingScenes = true;
+		lastSceneToClass = [
+			'scene2' => new Scene2(),
+			'scene3' => new Scene3(),
+
+			'scene4n' => new Scene4Normal(),
+			'scene4i' => new Scene4Impatient(),
+			'scene5n' => new Scene5Normal(),
+			'scene5i' => new Scene5Impatient(),
+			'scene6n' => new Scene6Normal(),
+			'scene6i' => new Scene6Impatient(),
+
+			'scene7n' => new Scene7Normal(),
+			'scene7i' => new Scene7Impatient(),
+			'scene8n' => new Scene8Normal(),
+			'scene8i' => new Scene8Impatient(),
+			'scene9n' => new Scene9Normal(),
+			'scene9i' => new Scene9Impatient(),
+			'scene10n' => new Scene10Normal(),
+			'scene10i' => new Scene10Impatient(),
+
+			'scene10ni' => new Scene10NormalIntermission(),
+			'scene10ii' => new Scene10ImpatientIntermission(),
+
+			'scene11n' => new Scene11Normal(),
+			'scene11i' => new Scene11Impatient(),
+			'scene12n' => new Scene12Normal(),
+			'scene12i' => new Scene12Impatient(),
+			'scene13n' => new Scene13Normal(),
+			'scene13i' => new Scene13Impatient(),
+			'scene14n' => new Scene14Normal(),
+			'scene14i' => new Scene14Impatient(),
+
+			'endn_M1' => new EndNormalV1(),
+			'endi_M1' => new EndImpatientV1()
+		];
+		reloadingScenes = false;
 	}
 }
