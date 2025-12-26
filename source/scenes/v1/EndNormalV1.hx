@@ -23,17 +23,21 @@ class EndNormalV1 extends ButtonScene
 			transitioning = true;
 			FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
 			{
-				switchScene(new V2Intro());
+				if (FlxG.save.data.seenkojn)
+					switchScene(new V2Intro());
+				else
+					switchScene(new MainMenu());
 			});
 		});
 
 		clickText.visible = false;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
 		if (transitioning)
-			setCenterText(Sha256.encode('' + FlxG.random.int(0,255)));
+			setCenterText(Sha256.encode('' + FlxG.random.int(0, 255)));
 	}
 }
