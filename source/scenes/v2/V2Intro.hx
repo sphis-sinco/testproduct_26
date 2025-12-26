@@ -1,5 +1,6 @@
 package scenes.v2;
 
+import scenes.v2.associated.ClickIfYouDesireThis;
 import scenes.v2.unassociated.FindTheCode;
 import menus.MainMenu;
 import flixel.util.FlxTimer;
@@ -22,7 +23,7 @@ class V2Intro extends Scene
 		onEscape.add(function()
 		{
 			if (Save.kojnmemories.contains('associated'))
-				switchScene(new MainMenu());
+				switchScene(new ClickIfYouDesireThis());
 			else if (Save.kojnmemories.contains('unassociated'))
 				switchScene(new FindTheCode());
 			else
@@ -63,7 +64,7 @@ class V2Intro extends Scene
 			topText.alpha = FlxG.random.float(.2);
 			if (Save.kojnmemories.contains('associated'))
 			{
-				topText.text = '{overwrite_value="you know not what I do"}';
+				topText.text = 'He\'s a danger to us all.';
 
 				them.x += them.width / 2;
 				him.x += him.width / 2;
