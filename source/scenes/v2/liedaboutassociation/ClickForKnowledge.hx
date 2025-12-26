@@ -8,14 +8,17 @@ class Knowledge
 {
 	public var instruction:String = '';
 
-	public function new(instruction:String)
+    public var clicked:Bool = false;
+
+	public function new(instruction:String, ?hasClicked:Bool = false)
 	{
 		this.instruction = instruction;
+        this.clicked = hasClicked;
 	}
 
 	public function copy():Knowledge
 	{
-		return new Knowledge(this.instruction);
+		return new Knowledge(this.instruction, this.clicked);
 	}
 }
 
@@ -23,13 +26,9 @@ class ClickForKnowledge extends ButtonScene
 {
 	public static var theFailure:Knowledge = new Knowledge('Click if he told you about the failure');
 
-	public var currentKnowledge:Knowledge;
-
 	override public function new(knowledge:Knowledge = null, ?append:String)
 	{
 		super(knowledge?.instruction ?? '', 'clickForKnowledge' + append);
-
-		currentKnowledge = knowledge?.copy() ?? null;
 
 		onLeftClick.add(function()
 		{
@@ -60,7 +59,7 @@ class TheFailureKnowledge extends ClickForKnowledge
 
 	override function clickedOrWaited(clicked:Bool = false)
 	{
-		super.clickedOrWaited(clicked);
+        ClickForKnowledge.theFailure.clicked = clicked;
         
         switchScene(new MainMenu());
 	}
