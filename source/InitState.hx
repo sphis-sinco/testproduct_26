@@ -160,6 +160,9 @@ class InitState extends FlxState
 		];
 		reloadingScenes = false;
 
-		trace('Scene count: ' + Reflect.fields(lastSceneToClass).length + 1);
+		var scenes = [];
+		for (key => value in lastSceneToClass)
+			scenes.push(key);
+		trace('Scene count: ' + scenes.length + 1);
 	}
 }
