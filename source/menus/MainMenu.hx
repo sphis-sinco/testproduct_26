@@ -52,7 +52,7 @@ class MainMenu extends MenuScene
 		resetBox.screenCenter();
 		resetBox.x += resetBox.width;
 
-		reset = new FlxText(0, 0, resetBox.width, "Reset", 16);
+		reset = new FlxText(0, 0, resetBox.width, "Revert to Level 1", 16);
 		add(reset);
 		reset.color = FlxColor.BLACK;
 		reset.alignment = CENTER;
