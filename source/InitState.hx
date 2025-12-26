@@ -91,9 +91,18 @@ class InitState extends FlxState
 			Save.beat.v2 = null;
 
 		Save.beat.v2 ??= {};
-		Save.beat.v2.associated ??= false;
-		Save.beat.v2.unassociated ??= false;
-		Save.beat.v2.liedAboutAssociation ??= false;
+
+		try
+		{
+			Reflect.setField(Save.beat.v2, 'associated', Reflect.field(Save.beat.v2, 'associated') ?? false);
+			Reflect.setField(Save.beat.v2, 'unassociated', Reflect.field(Save.beat.v2, 'unassociated') ?? false);
+			Reflect.setField(Save.beat.v2, 'liedAboutAssociation', Reflect.field(Save.beat.v2, 'liedAboutAssociation') ?? false);
+		}
+		catch (e)
+		{
+			trace('ur saves weird dude');
+			trace(e);
+		}
 
 		/*
 			if (Save.firsttime == null)

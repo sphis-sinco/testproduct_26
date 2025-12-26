@@ -47,7 +47,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 		var imgs = ['foadDead'];
 
 		var randomShit:FlxSprite = new FlxSprite();
-		add(randomShit);
+		members.insert(0, randomShit);
 
 		var img = imgs[0];
 		randomShit.loadGraphic('assets/cutscenes/innocentCasualty/$img.png');
@@ -70,7 +70,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 		button.visible = false;
 
-		FlxG.sound.play('assets/cutscenes/innocentCasualty/testproduct_26_aftermath', 1, false, null, true, function()
+		FlxG.sound.play('assets/cutscenes/innocentCasualty/testproduct_26_aftermath.wav', 1, false, null, true, function()
 		{
             Save.beat.v2.liedAboutAssociation = true;
 
