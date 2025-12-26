@@ -1,5 +1,6 @@
 package menus;
 
+import backend.Sprite;
 import lime.app.Application;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
@@ -63,7 +64,7 @@ class MainMenu extends MenuScene
 
 		kojn = new Heart();
 		kojn.screenCenter(X);
-		kojn.y = kojn.height;
+		kojn.y = 4;
 		kojn.flipY = true;
 		add(kojn);
 
@@ -89,12 +90,23 @@ class MainMenu extends MenuScene
 		if (!transitioning)
 			for (button in [playBox, resetBox, kojn])
 			{
+				var ogScale = 1.0;
+				var hoverOffset = 0.0;
+				var pressOffset = 0.0;
+
+				if (button == kojn)
+				{
+					hoverOffset = .1;
+					pressOffset = .2;
+					ogScale = Sprite.SCALE - kojn.scaleOffset;
+				}
+
 				if (FlxG.mouse.overlaps(button) && button.visible)
 				{
-					button.scale.set(0.9, 0.9);
+					button.scale.set(ogScale - (.1 + hoverOffset), ogScale - (.1 + hoverOffset));
 
 					if (FlxG.mouse.pressed)
-						button.scale.set(0.8, 0.8);
+						button.scale.set(ogScale - (.2 + pressOffset), ogScale - (.2 + pressOffset));
 					if (FlxG.mouse.justReleased)
 					{
 						playBlip();
@@ -140,7 +152,7 @@ class MainMenu extends MenuScene
 					}
 				}
 				else
-					button.scale.set(1, 1);
+					button.scale.set(ogScale, ogScale);
 			}
 	}
 
