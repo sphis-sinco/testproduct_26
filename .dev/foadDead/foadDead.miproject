@@ -29,11 +29,11 @@
 			"hide_color_tag": [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
 		},
 		"work_camera": {
-			"focus": [ -8.25071, 9.89743, -26.17395 ],
-			"angle_xy": -92.88729,
-			"angle_z": 37.51932,
+			"focus": [ -1.71146, 5.08757, -17.30869 ],
+			"angle_xy": -214.37483,
+			"angle_z": -0.85,
 			"roll": 0,
-			"zoom": 31.63144
+			"zoom": 39.62262
 		}
 	},
 	"render": {
@@ -244,7 +244,7 @@
 			"text": {
 				"font": "default",
 				"3d": false,
-				"face_camera": true
+				"face_camera": false
 			}
 		}
 	],
@@ -270,11 +270,11 @@
 					"VISIBLE": false
 				},
 				"4": {
-					"POS_X": 7.49907,
+					"POS_X": 3.78016,
 					"POS_Y": 14.84107,
 					"POS_Z": -0.18977,
 					"ROT_X": -175.45208,
-					"ROT_Y": 119.72535,
+					"ROT_Y": 181.48076,
 					"SCA_X": 0.1,
 					"SCA_Y": 0.1,
 					"SCA_Z": 0.1,
