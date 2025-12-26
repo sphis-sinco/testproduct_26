@@ -110,7 +110,7 @@ class MainMenu extends MenuScene
 								ease: FlxEase.smootherStepIn,
 								onUpdate: function(twn)
 								{
-									if (twn.percent % FlxG.random.int(0, 10) == 0)
+									if (FlxG.random.bool(80))
 									{
 										title.y += FlxG.random.float(-10, 10);
 										playBox.y += FlxG.random.float(-10, 10);

@@ -106,6 +106,9 @@ class InitState extends FlxState
 		if (FlxG.save.data.beat == null)
 			FlxG.save.data.beat = {};
 
+		FlxG.save.data.beat.v1 ??= false;
+		FlxG.save.data.beat.v2 ??= false;
+
 		/*
 			if (FlxG.save.data.firsttime == null)
 				FlxG.save.data.firsttime = true;

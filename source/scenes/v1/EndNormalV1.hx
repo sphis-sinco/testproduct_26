@@ -1,5 +1,6 @@
 package scenes.v1;
 
+import menus.MainMenu;
 import flixel.FlxG;
 import lime.app.Application;
 import backend.buttonscenes.ButtonScene;
@@ -12,11 +13,13 @@ class EndNormalV1 extends ButtonScene
 
 		onLeftClick.add(function()
 		{
-			Application.current.window.close();
+			if (FlxG.save.isBound)
+				if (FlxG.save.data.beat != null)
+					FlxG.save.data.beat.v1 = true;
+
+			switchScene(new MainMenu());
 		});
 
 		clickText.visible = false;
-
-		FlxG.save.data.beat.v1 = true;
 	}
 }
