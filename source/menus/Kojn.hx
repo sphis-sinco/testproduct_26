@@ -92,7 +92,7 @@ class Kojn extends MenuScene
 		{
 			if (FlxG.save.isBound)
 				if (Save.kojnmemories != null)
-					Save.kojnmemories.push('assosiated');
+					Save.kojnmemories.push('associated');
 
 			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
 			{
@@ -117,7 +117,7 @@ class Kojn extends MenuScene
 		{
 			if (FlxG.save.isBound)
 				if (Save.kojnmemories != null)
-					Save.kojnmemories.push('unassosiated');
+					Save.kojnmemories.push('unassociated');
 			kojnMouth.setState('smile');
 
 			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
@@ -168,52 +168,49 @@ class Kojn extends MenuScene
 		});
 	}
 
+	public function findTheCode()
+	{
+		waitTimeThenSetDialogue(0, "The year the the tests began.");
+		waitTimeThenSetDialogue(1, "That's all I know about the code...");
+		waitTimeThenSetDialogue(2, "I might be able to find a file assosiated with the code.");
+		waitTimeThenSetDialogue(3, "...", function()
+		{
+			kojnMouth.setState('blank');
+		});
+		waitTimeThenSetDialogue(FlxG.random.float(1, 4), "Found Something.", function()
+		{
+			kojnMouth.setState('smile');
+
+			Save.laststate = "findTheCode_vis";
+
+			FlxG.sound.play('assets/kojn/kickout.wav');
+			FlxTimer.wait(.3, function()
+			{
+				switchScene(new MainMenu());
+			});
+		});
+	}
+
 	public function makeScene()
 	{
 		if (!Save?.seenkojn || (Save.kojnmemories == [] || Save.kojnmemories == null || Save.kojnmemories.length < 1))
 			firstTime();
 		else
 		{
-			if (Save.laststate == 'findTheCode')
+			if (Save.kojnmemories.contains('unassociated'))
 			{
-				waitTimeThenSetDialogue(0, "The year the the tests began.");
-				waitTimeThenSetDialogue(1, "That's all I know about the code...");
-				waitTimeThenSetDialogue(2, "I might be able to find a file assosiated with the code.");
-				waitTimeThenSetDialogue(3, "...", function()
-				{
-					kojnMouth.setState('blank');
-				});
-				waitTimeThenSetDialogue(FlxG.random.float(1, 4), "Found Something.", function()
+				if (Save.laststate == 'findTheCode')
+					findTheCode();
+				else if (!Save.kojnmemories.contains('testproduct_26'))
+					tepro26();
+				else
 				{
 					kojnMouth.setState('smile');
-
-					Save.laststate = "findTheCode_vis";
-
-					FlxG.sound.play('assets/kojn/kickout.wav');
-					FlxTimer.wait(.3, function()
-					{
-						switchScene(new MainMenu());
-					});
-				});
+					waitTimeThenSetDialogue(1, "Continue.");
+				}
 			}
 			else
-			{
-				if (Save.kojnmemories.contains('unassosiated'))
-				{
-					if (!Save.kojnmemories.contains('testproduct_26'))
-						tepro26();
-					else
-					{
-						kojnMouth.setState('smile');
-						waitTimeThenSetDialogue(1, "Continue.", function()
-						{
-							kojnMouth.setState('smile');
-						});
-					}
-				}
-				else
-					waitTimeThenSetDialogue(1, "...");
-			}
+				waitTimeThenSetDialogue(1, "...");
 		}
 	}
 }

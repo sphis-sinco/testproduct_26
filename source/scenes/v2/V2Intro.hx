@@ -1,6 +1,6 @@
 package scenes.v2;
 
-import scenes.v2.unassosiated.FindTheCode;
+import scenes.v2.unassociated.FindTheCode;
 import menus.MainMenu;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
@@ -21,9 +21,9 @@ class V2Intro extends Scene
 
 		onEscape.add(function()
 		{
-			if (Save.kojnmemories.contains('assosiated'))
+			if (Save.kojnmemories.contains('associated'))
 				switchScene(new MainMenu());
-			else if (Save.kojnmemories.contains('unassosiated'))
+			else if (Save.kojnmemories.contains('unassociated'))
 				switchScene(new FindTheCode());
 			else
 				switchScene(new MainMenu());
@@ -61,7 +61,7 @@ class V2Intro extends Scene
 		{
 			topText.size *= 2;
 			topText.alpha = FlxG.random.float(.2);
-			if (Save.kojnmemories.contains('assosiated'))
+			if (Save.kojnmemories.contains('associated'))
 			{
 				topText.text = '{overwrite_value="you know not what I do"}';
 
@@ -71,7 +71,7 @@ class V2Intro extends Scene
 				us.x = them.x;
 				us.y += us.height;
 			}
-			else if (Save.kojnmemories.contains('unassosiated'))
+			else if (Save.kojnmemories.contains('unassociated'))
 			{
 				topText.text = '{overwrite_value="WE will achieve revenge"}';
 

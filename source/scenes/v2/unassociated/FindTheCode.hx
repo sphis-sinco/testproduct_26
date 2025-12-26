@@ -1,4 +1,4 @@
-package scenes.v2.unassosiated;
+package scenes.v2.unassociated;
 
 import flixel.FlxG;
 import backend.buttonscenes.ButtonCodeScene;

@@ -1,4 +1,4 @@
-package scenes.v2.unassosiated;
+package scenes.v2.unassociated;
 
 class FindTheCodeVisibleCode extends FindTheCode
 {

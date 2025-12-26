@@ -1,7 +1,7 @@
 package;
 
-import scenes.v2.unassosiated.FindTheCodeVisibleCode;
-import scenes.v2.unassosiated.FindTheCode;
+import scenes.v2.unassociated.FindTheCodeVisibleCode;
+import scenes.v2.unassociated.FindTheCode;
 import scenes.v2.V2Intro;
 import scenes.v1.Scene10Intermissions;
 import scenes.v1.FirstSceneGroup;
