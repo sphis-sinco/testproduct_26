@@ -39,6 +39,7 @@ class InitState extends FlxState
 		reloadScenes();
 
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
+		FlxG.save.mergeDataFrom('tepro', 'SPhis');
 
 		var onExit = function(l)
 		{
@@ -110,7 +111,7 @@ class InitState extends FlxState
 
 	public static function readSave()
 	{
-		trace('Save');
+		trace('Save (${FlxG.save.path}/${FlxG.save.name})');
 		for (field in Reflect.fields(FlxG.save.data))
 			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
 	}

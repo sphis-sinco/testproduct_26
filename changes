@@ -6,3 +6,5 @@
         - New Route: Unassosiated
     - Impatient Route continued, shortly though, now's not the time for impatience, this is your second chance at not being impatient.
 - Fixed window title adding more version strings when resetting your save
+- Updated company from "SPhis" to "Macohi"
+    - Saves will not be wiped, it will merge your previous save
