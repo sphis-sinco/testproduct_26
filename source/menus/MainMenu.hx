@@ -68,7 +68,7 @@ class MainMenu extends MenuScene
 		kojn.flipY = true;
 		add(kojn);
 
-		kojn.visible = FlxG.save.data?.beat?.v1 ?? false;
+		kojn.visible = Save.beat?.v1 ?? false;
 
 		onEscape.add(function()
 		{
@@ -81,8 +81,7 @@ class MainMenu extends MenuScene
 		super.update(elapsed);
 
 		#if debug
-		if (FlxG.save.isBound)
-			play.text = "Play\n(" + FlxG.save.data.laststate + ")";
+		play.text = "Play\n(" + Save.laststate + ")";
 		#end
 		play.setPosition(playBox.x, playBox.y + (playBox.height / 2) - (play.height / 2));
 		reset.setPosition(resetBox.x, resetBox.y + (resetBox.height / 2) - (reset.height / 2));
@@ -115,7 +114,7 @@ class MainMenu extends MenuScene
 							InitState.switchToGameplay();
 
 						if (button == resetBox)
-							FlxG.save.data.laststate = null;
+							Save.laststate = null;
 
 						if (button == kojn)
 						{

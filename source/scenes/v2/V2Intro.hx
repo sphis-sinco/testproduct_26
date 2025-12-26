@@ -1,5 +1,6 @@
 package scenes.v2;
 
+import scenes.v2.unassosiated.FindTheCode;
 import menus.MainMenu;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
@@ -18,17 +19,12 @@ class V2Intro extends Scene
 
 		this.impatientRoute = impatientRoute;
 
-		var kojnmemories:Array<String> = [];
-
-		if (FlxG.save.isBound)
-			kojnmemories = FlxG.save.data.kojnmemories;
-
 		onEscape.add(function()
 		{
-			if (kojnmemories.contains('assosiated'))
+			if (Save.kojnmemories.contains('assosiated'))
 				switchScene(new MainMenu());
-			else if (kojnmemories.contains('unassosiated'))
-				switchScene(new MainMenu());
+			else if (Save.kojnmemories.contains('unassosiated'))
+				switchScene(new FindTheCode(true));
 			else
 				switchScene(new MainMenu());
 		});
@@ -63,12 +59,7 @@ class V2Intro extends Scene
 
 		FlxTimer.wait(2, function()
 		{
-			var kojnmemories:Array<String> = [];
-
-			if (FlxG.save.isBound)
-				kojnmemories = FlxG.save.data.kojnmemories;
-
-			if (kojnmemories.contains('assosiated'))
+			if (Save.kojnmemories.contains('assosiated'))
 			{
 				topText.text = '{overwrite_value="you know not what I do"}';
 
@@ -78,7 +69,7 @@ class V2Intro extends Scene
 				us.x = them.x;
 				us.y += us.height;
 			}
-			else if (kojnmemories.contains('unassosiated'))
+			else if (Save.kojnmemories.contains('unassosiated'))
 			{
 				topText.text = '{overwrite_value="we will achieve revenge"}';
 

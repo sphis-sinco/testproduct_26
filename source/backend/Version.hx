@@ -26,9 +26,8 @@ class Version
 
 	static function get_BUILD():Null<Int>
 	{
-		if (FlxG.save.isBound)
-			if (FlxG.save.data.build != null)
-				return FlxG.save.data.build;
+		if (Save.build != null)
+			return Save.build;
 
 		return try
 		{

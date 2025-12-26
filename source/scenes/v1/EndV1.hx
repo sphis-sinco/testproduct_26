@@ -15,14 +15,13 @@ class EndV1 extends ButtonScene
 		super(msg, laststate);
 		onLeftClick.add(function()
 		{
-			if (FlxG.save.isBound)
-				if (FlxG.save.data.beat != null)
-					FlxG.save.data.beat.v1 = true;
+			if (Save.beat != null)
+				Save.beat.v1 = true;
 
 			transitioning = true;
 			FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
 			{
-				if (FlxG.save.data.seenkojn)
+				if (Save.seenkojn)
 					switchScene(new V2Intro(impatient));
 				else
 					switchScene(new MainMenu());

@@ -9,6 +9,8 @@ import flixel.text.FlxText;
 import backend.objects.KojnMouth;
 import backend.MenuScene;
 
+using StringTools;
+
 class Kojn extends MenuScene
 {
 	public var kojnMouth:KojnMouth = new KojnMouth();
@@ -60,7 +62,7 @@ class Kojn extends MenuScene
 
 	public function firstTime()
 	{
-		FlxG.save.data.seenkojn = true;
+		Save.seenkojn = true;
 
 		waitTimeThenSetDialogue(.0, "h", function()
 		{
@@ -83,8 +85,8 @@ class Kojn extends MenuScene
 		var yes:FlxButton = new FlxButton(0, 0, "Yes", function()
 		{
 			if (FlxG.save.isBound)
-				if (FlxG.save.data.kojnmemories != null)
-					FlxG.save.data.kojnmemories.push('assosiated');
+				if (Save.kojnmemories != null)
+					Save.kojnmemories.push('assosiated');
 
 			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
 			{
@@ -108,8 +110,8 @@ class Kojn extends MenuScene
 		var no:FlxButton = new FlxButton(0, 0, "No", function()
 		{
 			if (FlxG.save.isBound)
-				if (FlxG.save.data.kojnmemories != null)
-					FlxG.save.data.kojnmemories.push('unassosiated');
+				if (Save.kojnmemories != null)
+					Save.kojnmemories.push('unassosiated');
 			kojnMouth.setState('smile');
 
 			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
@@ -140,22 +142,23 @@ class Kojn extends MenuScene
 
 	public function makeScene()
 	{
-		var kojnmemories:Array<String> = FlxG.save.data?.kojnmemories;
-
-		trace(kojnmemories.length);
-		if (!FlxG.save.data?.seenkojn || (kojnmemories == [] || kojnmemories == null || kojnmemories.length < 1))
+		if (!Save?.seenkojn || (Save.kojnmemories == [] || Save.kojnmemories == null || Save.kojnmemories.length < 1))
 		{
 			firstTime();
 		}
 		else
 		{
-			if (kojnmemories.contains('unassosiated'))
-			{
-				kojnMouth.setState('smile');
-				setDialogue("Continue.");
-			}
+			if (Save.laststate.startsWith('findTheCode_')) {}
 			else
-				setDialogue("...");
+			{
+				if (Save.kojnmemories.contains('unassosiated'))
+				{
+					kojnMouth.setState('smile');
+					setDialogue("Continue.");
+				}
+				else
+					setDialogue("...");
+			}
 		}
 	}
 }

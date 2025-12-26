@@ -1,5 +1,6 @@
 package;
 
+import scenes.v2.unassosiated.FindTheCode;
 import scenes.v2.V2Intro;
 import scenes.v1.Scene10Intermissions;
 import scenes.v1.FirstSceneGroup;
@@ -49,45 +50,45 @@ class InitState extends FlxState
 			Application.current.onExit.add(onExit);
 
 		#if debug
-		FlxG.save.data.build = null;
-		FlxG.save.data.build = Version.BUILD;
+		Save.build = null;
+		Save.build = Version.BUILD;
 
 		if (!increasedBuild)
 		{
 			increasedBuild = true;
-			FlxG.save.data.build++;
+			Save.build = Save.build += 1;
 		}
 
 		#if sys
 		var sysPath = Sys.programPath().substring(0, Sys.programPath().indexOf('\\export')).replace('\\', '/');
 		sysPath += '/build.txt';
-		File.saveContent(sysPath, '' + FlxG.save.data.build);
-		File.saveContent('build.txt', '' + FlxG.save.data.build);
+		File.saveContent(sysPath, '' + Save.build);
+		File.saveContent('build.txt', '' + Save.build);
 		#end
 		#end
 
-		if (FlxG.save.data.beat == null)
-			FlxG.save.data.beat = {};
+		if (Save.beat == null)
+			Save.beat = {};
 
-		if (FlxG.save.data.seenkojn == null)
-			FlxG.save.data.seenkojn = false;
+		if (Save.seenkojn == null)
+			Save.seenkojn = false;
 
-		if (FlxG.save.data.kojnmemories == null)
-			FlxG.save.data.kojnmemories = [];
+		if (Save.kojnmemories == null)
+			Save.kojnmemories = [];
 
-		FlxG.save.data.beat.v1 ??= false;
-		FlxG.save.data.beat.v2 ??= false;
+		Save.beat.v1 ??= false;
+		Save.beat.v2 ??= false;
 
 		/*
-			if (FlxG.save.data.firsttime == null)
-				FlxG.save.data.firsttime = true;
+			if (Save.firsttime == null)
+				Save.firsttime = true;
 			else
-				FlxG.save.data.firsttime = false;
+				Save.firsttime = false;
 		 */
 
 		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
 		if (state != null)
-			FlxG.save.data.laststate = state;
+			Save.laststate = state;
 
 		trace(Version.FULL);
 
@@ -101,15 +102,15 @@ class InitState extends FlxState
 	{
 		reloadScenes();
 
-		trace('laststate: ' + FlxG.save.data.laststate);
-		FlxG.switchState(() -> (lastSceneToClass.get(FlxG.save.data.laststate) ?? new Scene1()));
+		trace('laststate: ' + Save.laststate);
+		FlxG.switchState(() -> (lastSceneToClass.get(Save.laststate) ?? new Scene1()));
 	}
 
 	public static function readSave()
 	{
 		trace('Save');
-		for (field in Reflect.fields(FlxG.save.data))
-			trace(' * $field : ' + Reflect.field(FlxG.save.data, field));
+		for (field in Reflect.fields(Save))
+			trace(' * $field : ' + Reflect.field(Save, field));
 	}
 
 	public static function reloadScenes()
@@ -152,6 +153,9 @@ class InitState extends FlxState
 
 			'M2intro_nr' => new V2Intro(false),
 			'M2intro_ir' => new V2Intro(true),
+
+			'findTheCode_nr' => new FindTheCode(false),
+			'findTheCode_ir' => new FindTheCode(true),
 		];
 		reloadingScenes = false;
 	}
