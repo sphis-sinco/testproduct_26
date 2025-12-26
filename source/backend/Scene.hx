@@ -1,5 +1,6 @@
 package backend;
 
+import subscenes.ResetSaveSubstate;
 import flixel.util.FlxSignal;
 import flixel.text.FlxText;
 import flixel.FlxG;
@@ -41,7 +42,7 @@ class Scene extends FlxState
 		if (FlxG.keys.justReleased.R)
 		{
 			trace('<user> I dont like this anymore');
-			// FlxG.resetGame();
+			openSubState(new ResetSaveSubstate());
 		}
 	}
 

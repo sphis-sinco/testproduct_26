@@ -6,3 +6,4 @@
     - The main menu closes the window
     - Gameplay Scenes send you to the main menu
 - Fixed softlock going above the desired button click amount in scenes
+- You can now press "R" to reset your save (A confirmation will obviously be shown)
