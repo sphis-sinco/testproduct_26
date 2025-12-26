@@ -77,6 +77,10 @@ class MainMenu extends MenuScene
 		{
 			Application.current.window.close();
 		});
+
+		for (obj in members)
+			if (obj != topText)
+				obj.visible = !Save.beat.v2.liedAboutAssociation;
 	}
 
 	override function update(elapsed:Float)
