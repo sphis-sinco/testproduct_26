@@ -18,9 +18,19 @@ class V2Intro extends Scene
 
 		this.impatientRoute = impatientRoute;
 
+		var kojnmemories:Array<String> = [];
+
+		if (FlxG.save.isBound)
+			kojnmemories = FlxG.save.data.kojnmemories;
+
 		onEscape.add(function()
 		{
-			switchScene(new MainMenu());
+			if (kojnmemories.contains('assosiated'))
+				switchScene(new MainMenu());
+			else if (kojnmemories.contains('unassosiated'))
+				switchScene(new MainMenu());
+			else
+				switchScene(new MainMenu());
 		});
 	}
 
@@ -56,23 +66,40 @@ class V2Intro extends Scene
 			var kojnmemories:Array<String> = [];
 
 			if (FlxG.save.isBound)
-				if (FlxG.save.data.kojnmemories != null)
-					kojnmemories = FlxG.save.data.kojnmemories;
+				kojnmemories = FlxG.save.data.kojnmemories;
 
-			if (kojnmemories.contains('assosiated')) {}
-			else if (kojnmemories.contains('unassosiated')) {}
+			if (kojnmemories.contains('assosiated'))
+			{
+				topText.text = '{overwrite_value="you know not what I do"}';
+
+				them.x += them.width / 2;
+				him.x += him.width / 2;
+
+				us.x = them.x;
+				us.y += us.height;
+			}
+			else if (kojnmemories.contains('unassosiated'))
+			{
+				topText.text = '{overwrite_value="we will achieve revenge"}';
+
+				them.x += them.width / 2;
+				him.x += him.width / 2;
+
+				us.x = him.x;
+				us.y += us.height;
+			}
 			else
 			{
 				topText.text = '{overwrite_value="come find me"}';
 
-				FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
-				{
-					onEscape.dispatch();
-				});
-
 				for (obj in [them, us])
 					FlxTween.tween(obj, {alpha: 0}, 1);
 			}
+
+			FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
+			{
+				onEscape.dispatch();
+			});
 		});
 	}
 }
