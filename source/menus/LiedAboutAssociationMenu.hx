@@ -22,11 +22,6 @@ class LiedAboutAssociationMenu extends MenuScene
 	{
 		super.create();
 
-		onEscape.add(function()
-		{
-			switchScene(new LiedAboutAssociationMenu());
-		});
-
 		var repent:FlxText = new FlxText(0, 0, FlxG.width, '', 16);
 		add(repent);
 
