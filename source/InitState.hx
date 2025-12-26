@@ -65,7 +65,7 @@ class InitState extends FlxState
 		if (!increasedBuild)
 		{
 			increasedBuild = true;
-			Save.build = Save.build += 1;
+			Save.build++;
 		}
 
 		#if sys

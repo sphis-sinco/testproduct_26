@@ -30,6 +30,9 @@ class MainMenu extends MenuScene
 	{
 		super.create();
 
+		if (Save.beat.v2.liedAboutAssociation)
+			switchScene(new LiedAboutAssociationMenu());
+
 		title = new FlxText(0, 0, 0, "Tepro", 64);
 		add(title);
 		title.screenCenter();
