@@ -32,6 +32,7 @@ class InitState extends FlxState
 	public static var increasedBuild:Bool = false;
 	public static var reloadingScenes:Bool = false;
 
+	public static var startTime:Date;
 	public static var lastTime:Date;
 
 	public static var usrName = #if windows Sys.environment()["USERNAME"]; #elseif (linux || macos) Sys.environment()["USER"]; #else 'foad' #end
@@ -58,6 +59,18 @@ class InitState extends FlxState
 
 		if (lastTime == null)
 			lastTime = Date.now();
+
+		
+		var onDateExit = function(l)
+		{
+			trace('Closed after ${(Date.now().getTime() - InitState.lastTime.getTime()) / 1000}s');
+		};
+
+		if (!Application.current.onExit.has(onDateExit))
+			Application.current.onExit.add(onDateExit);
+
+		if (startTime == null)
+			startTime = Date.now();
 	}
 
 	public static function switchToGameplay()
@@ -73,15 +86,15 @@ class InitState extends FlxState
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 		// FlxG.save.mergeDataFrom('tepro', 'SPhis', true, true);
 
-		var onExit = function(l)
+		var onSaveExit = function(l)
 		{
 			readSave();
 
 			FlxG.save.flush();
 		};
 
-		if (!Application.current.onExit.has(onExit))
-			Application.current.onExit.add(onExit);
+		if (!Application.current.onExit.has(onSaveExit))
+			Application.current.onExit.add(onSaveExit);
 
 		#if debug
 		Save.build = null;
