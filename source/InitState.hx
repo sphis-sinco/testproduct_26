@@ -132,6 +132,9 @@ class InitState extends FlxState
 		if (Save.revertCount == null)
 			Save.revertCount = 0;
 
+		if (Save.laststate == null)
+			Save.laststate = 'scene1';
+
 		/*
 			if (Save.firsttime == null)
 				Save.firsttime = true;
