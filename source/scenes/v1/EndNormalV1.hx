@@ -1,5 +1,6 @@
 package scenes.v1;
 
+import scenes.v2.V2Intro;
 import haxe.crypto.Sha256;
 import flixel.util.FlxColor;
 import menus.MainMenu;
@@ -22,7 +23,7 @@ class EndNormalV1 extends ButtonScene
 			transitioning = true;
 			FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
 			{
-				switchScene(new MainMenu());
+				switchScene(new V2Intro());
 			});
 		});
 

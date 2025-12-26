@@ -1,5 +1,6 @@
 package;
 
+import scenes.v2.V2Intro;
 import scenes.v1.Scene10Intermissions;
 import scenes.v1.FirstSceneGroup;
 import scenes.v1.SecondSceneGroup;
@@ -148,7 +149,10 @@ class InitState extends FlxState
 			'scene14i' => new Scene14Impatient(),
 
 			'endn_M1' => new EndNormalV1(),
-			'endi_M1' => new EndImpatientV1()
+			'endi_M1' => new EndImpatientV1(),
+
+			'M2intro_nr' => new V2Intro(false),
+			'M2intro_ir' => new V2Intro(true),
 		];
 		reloadingScenes = false;
 	}
