@@ -59,6 +59,8 @@ class V2Intro extends Scene
 
 		FlxTimer.wait(2, function()
 		{
+			topText.size *= 2;
+			topText.alpha = FlxG.random.float(.2);
 			if (Save.kojnmemories.contains('assosiated'))
 			{
 				topText.text = '{overwrite_value="you know not what I do"}';
@@ -71,7 +73,7 @@ class V2Intro extends Scene
 			}
 			else if (Save.kojnmemories.contains('unassosiated'))
 			{
-				topText.text = '{overwrite_value="we will achieve revenge"}';
+				topText.text = '{overwrite_value="WE will achieve revenge"}';
 
 				them.x += them.width / 2;
 				him.x += him.width / 2;
