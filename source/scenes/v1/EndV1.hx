@@ -8,12 +8,11 @@ import flixel.FlxG;
 import lime.app.Application;
 import backend.buttonscenes.ButtonScene;
 
-class EndNormalV1 extends ButtonScene
+class EndV1 extends ButtonScene
 {
-	override public function new()
+	override public function new(msg:String, laststate:String, impatient:Bool)
 	{
-		super('Game over.\nHope you had some kind of fun.', 'endn_M1');
-
+		super(msg, laststate);
 		onLeftClick.add(function()
 		{
 			if (FlxG.save.isBound)
@@ -24,7 +23,7 @@ class EndNormalV1 extends ButtonScene
 			FlxG.sound.play('assets/kojn/testproduct_5_aftermath.wav', 1, false, null, true, function()
 			{
 				if (FlxG.save.data.seenkojn)
-					switchScene(new V2Intro());
+					switchScene(new V2Intro(impatient));
 				else
 					switchScene(new MainMenu());
 			});
@@ -39,5 +38,21 @@ class EndNormalV1 extends ButtonScene
 
 		if (transitioning)
 			setCenterText(Sha256.encode('' + FlxG.random.int(0, 255)));
+	}
+}
+
+class EndNormalV1 extends EndV1
+{
+	override public function new()
+	{
+		super('Game over.\nHope you had some kind of fun.', 'endn_M1', false);
+	}
+}
+
+class EndImpatientV1 extends EndV1
+{
+	override public function new()
+	{
+		super('Game over.\nConsidering your impatience I doupt you had fun.', 'endi_M1', true);
 	}
 }

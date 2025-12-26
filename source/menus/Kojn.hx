@@ -60,7 +60,10 @@ class Kojn extends MenuScene
 
 	public function makeScene()
 	{
-		if (!FlxG.save.data?.seenkojn || FlxG.save.data.kojnmemories == [])
+		var kojnmemories:Array<String> = FlxG.save.data?.kojnmemories;
+
+		trace(kojnmemories.length);
+		if (!FlxG.save.data?.seenkojn || (kojnmemories == [] || kojnmemories == null || kojnmemories.length < 1))
 		{
 			FlxG.save.data.seenkojn = true;
 

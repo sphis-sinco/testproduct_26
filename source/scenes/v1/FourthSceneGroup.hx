@@ -1,5 +1,6 @@
 package scenes.v1;
 
+import scenes.v1.EndV1;
 import backend.buttonscenes.ButtonAppearingAmountScene;
 
 class Scene11Normal extends ButtonAppearingAmountScene

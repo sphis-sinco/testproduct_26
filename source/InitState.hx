@@ -6,8 +6,7 @@ import scenes.v1.FirstSceneGroup;
 import scenes.v1.SecondSceneGroup;
 import scenes.v1.ThirdSceneGroup;
 import scenes.v1.FourthSceneGroup;
-import scenes.v1.EndNormalV1;
-import scenes.v1.EndImpatientV1;
+import scenes.v1.EndV1;
 import haxe.macro.Compiler;
 import backend.Version;
 #if sys
