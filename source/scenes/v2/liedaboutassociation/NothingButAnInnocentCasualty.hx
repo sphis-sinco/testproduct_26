@@ -1,5 +1,6 @@
 package scenes.v2.liedaboutassociation;
 
+import flixel.util.FlxColor;
 import lime.app.Application;
 import menus.MainMenu;
 import flixel.tweens.FlxTween;
@@ -16,17 +17,18 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 		onLeftClick.add(function()
 		{
-			// setCenterText('Good boy.');
-
-			FlxTimer.wait(1 / 12, function()
-			{
-				setCenterText('Good.');
-			});
-
+			setCenterText('Good.');
 			ending();
 		});
 
 		clickText.visible = false;
+	}
+
+	override function create()
+	{
+		super.create();
+
+		button.color = 0x282F52;
 	}
 
 	override function update(elapsed:Float)
@@ -45,7 +47,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 	public function ending()
 	{
-		var imgs = ['foadDead'];
+		var imgs = ['foadDead', 'theyKilled', 'wrongplacewrongtime', 'i was in the way', 'news'];
 
 		var randomShit:FlxSprite = new FlxSprite();
 		members.insert(0, randomShit);
@@ -62,7 +64,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 				if (FlxG.random.bool(80))
 				{
 					randomShit.loadGraphic('assets/cutscenes/innocentCasualty/$img.png');
-					randomShit.scale.set(FlxG.random.float(.1, 4), FlxG.random.float(.1, 4));
+					randomShit.scale.set(FlxG.random.float(.1, 1.5), FlxG.random.float(.1, 1.5));
 					randomShit.updateHitbox();
 					randomShit.screenCenter();
 				}
@@ -73,9 +75,9 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 		FlxG.sound.play('assets/cutscenes/innocentCasualty/testproduct_26_aftermath.wav', 1, false, null, true, function()
 		{
-            Save.beat.v2.liedAboutAssociation = true;
+			Save.beat.v2.liedAboutAssociation = true;
 
-            Application.current.window.close();
+			Application.current.window.close();
 		});
 	}
 }
