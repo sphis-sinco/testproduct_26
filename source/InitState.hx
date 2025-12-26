@@ -46,6 +46,30 @@ class InitState extends FlxState
 
 		reloadScenes();
 
+		initSave();
+
+		trace(Version.FULL);
+
+		if (!Application.current.window.title.contains(Version.FULL))
+			Application.current.window.title += ' (${Version.FULL})';
+
+		readSave();
+		FlxG.switchState(() -> new MainMenu());
+
+		if (lastTime == null)
+			lastTime = Date.now();
+	}
+
+	public static function switchToGameplay()
+	{
+		reloadScenes();
+
+		trace('laststate: ' + Save.laststate);
+		FlxG.switchState(() -> (lastSceneToClass.get(Save.laststate) ?? new Scene1()));
+	}
+
+	public static function initSave()
+	{
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
 		FlxG.save.mergeDataFrom('tepro', 'SPhis');
 
@@ -105,6 +129,9 @@ class InitState extends FlxState
 			trace(e);
 		}
 
+		if (Save.revertCount == null)
+			Save.revertCount = 1;
+
 		/*
 			if (Save.firsttime == null)
 				Save.firsttime = true;
@@ -115,25 +142,6 @@ class InitState extends FlxState
 		var state = Std.string(Compiler.getDefine('STATE')).split("=")[0];
 		if (state != null)
 			Save.laststate = state;
-
-		trace(Version.FULL);
-
-		if (!Application.current.window.title.contains(Version.FULL))
-			Application.current.window.title += ' (${Version.FULL})';
-
-		readSave();
-		FlxG.switchState(() -> new MainMenu());
-
-		if (lastTime == null)
-			lastTime = Date.now();
-	}
-
-	public static function switchToGameplay()
-	{
-		reloadScenes();
-
-		trace('laststate: ' + Save.laststate);
-		FlxG.switchState(() -> (lastSceneToClass.get(Save.laststate) ?? new Scene1()));
 	}
 
 	public static function readSave()
@@ -193,7 +201,7 @@ class InitState extends FlxState
 			'foundTheCode' => new FoundTheCode(),
 			// 'clickForKnowledge' => new ClickForKnowledge(),
 			'clickForKnowledge_tf' => new TheFailureKnowledge(),
-			'clickForKnowledge_bh' => new UsedRevertKnowledge(),
+			'clickForKnowledge_bh' => new BeenHereKnowledge(),
 			'clickForKnowledge_ur' => new UsedRevertKnowledge(),
 			'innocentCasualty' => new NothingButAnInnocentCasualty(),
 		];

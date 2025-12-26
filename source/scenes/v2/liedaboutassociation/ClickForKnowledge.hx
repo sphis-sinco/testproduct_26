@@ -25,6 +25,8 @@ class Knowledge
 class ClickForKnowledge extends ButtonScene
 {
 	public static var theFailure:Knowledge = new Knowledge('Click if he told you about the failure');
+	public static var usedRevert:Knowledge = new Knowledge('Click if you\'ve used the revert');
+	public static var beenHere:Knowledge = new Knowledge('Click if you\'ve been here before.');
 
 	override public function new(knowledge:Knowledge = null, ?append:String)
 	{
@@ -60,6 +62,48 @@ class TheFailureKnowledge extends ClickForKnowledge
 	override function clickedOrWaited(clicked:Bool = false)
 	{
 		ClickForKnowledge.theFailure.clicked = clicked;
+		if (Save.revertCount > 0)
+			switchScene(new UsedRevertKnowledge());
+		else
+			switchScene(new NothingButAnInnocentCasualty());
+	}
+}
+
+class UsedRevertKnowledge extends ClickForKnowledge
+{
+	override public function new()
+	{
+		super(ClickForKnowledge.usedRevert, '_ur');
+	}
+
+	override function clickedOrWaited(clicked:Bool = false)
+	{
+		ClickForKnowledge.usedRevert.clicked = clicked;
+
+		if (!clicked)
+		{
+			setCenterText("Liar.");
+
+			FlxTimer.wait(1, function()
+			{
+				switchScene(new BeenHereKnowledge());
+			});
+		}
+		else
+			switchScene(new BeenHereKnowledge());
+	}
+}
+
+class BeenHereKnowledge extends ClickForKnowledge
+{
+	override public function new()
+	{
+		super(ClickForKnowledge.beenHere, '_bh');
+	}
+
+	override function clickedOrWaited(clicked:Bool = false)
+	{
+		ClickForKnowledge.beenHere.clicked = clicked;
 
 		switchScene(new NothingButAnInnocentCasualty());
 	}

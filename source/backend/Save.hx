@@ -59,4 +59,12 @@ class Save
 
 	static function set_build(set:Null<Int>):Null<Int>
 		return setField('build', set);
+
+	public static var revertCount(get, set):Null<Int>;
+
+	static function get_revertCount():Null<Int>
+		return getField('revertCount');
+
+	static function set_revertCount(set:Null<Int>):Null<Int>
+		return setField('revertCount', set);
 }

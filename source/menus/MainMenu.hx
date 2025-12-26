@@ -79,7 +79,7 @@ class MainMenu extends MenuScene
 		for (obj in members)
 			if (obj != topText)
 				obj.visible = !Save.beat.v2.liedAboutAssociation;
-		
+
 		kojn.visible = Save.beat?.v1 ?? false;
 	}
 
@@ -121,7 +121,10 @@ class MainMenu extends MenuScene
 							InitState.switchToGameplay();
 
 						if (button == resetBox)
+						{
+							Save.revertCount += 1;
 							Save.laststate = null;
+						}
 
 						if (button == kojn || (button == resetBox && Save.seenkojn && !Save.kojnmemories.contains('liedaboutassociation')))
 						{
