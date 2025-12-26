@@ -1,5 +1,7 @@
 package scenes.v2;
 
+import menus.MainMenu;
+import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import backend.objects.Heart;
@@ -15,6 +17,11 @@ class V2Intro extends Scene
 		super((impatientRoute) ? 'M2intro_ir' : 'M2intro_nr');
 
 		this.impatientRoute = impatientRoute;
+
+		onEscape.add(function()
+		{
+			switchScene(new MainMenu());
+		});
 	}
 
 	public var them:Heart = new Heart();
@@ -35,11 +42,37 @@ class V2Intro extends Scene
 		us.screenCenter();
 		us.x += us.width;
 
-		FlxG.sound.play('assets/cutscenes/M2intro.wav');
+		FlxG.sound.play('assets/cutscenes/M2intro/appear.wav');
 		for (obj in [them, him, us])
 		{
+			add(obj);
+
 			obj.alpha = 0;
-            FlxTween.tween(obj, {alpha: 1}, 1);
+			FlxTween.tween(obj, {alpha: 1}, 1);
 		}
+
+		FlxTimer.wait(2, function()
+		{
+			var kojnmemories:Array<String> = [];
+
+			if (FlxG.save.isBound)
+				if (FlxG.save.data.kojnmemories != null)
+					kojnmemories = FlxG.save.data.kojnmemories;
+
+			if (kojnmemories.contains('assosiated')) {}
+			else if (kojnmemories.contains('unassosiated')) {}
+			else
+			{
+				topText.text = '{overwrite_value="come find me"}';
+
+				FlxG.sound.play('assets/kojn/kickout.wav', 1, false, null, true, function()
+				{
+					onEscape.dispatch();
+				});
+
+				for (obj in [them, us])
+					FlxTween.tween(obj, {alpha: 0}, 1);
+			}
+		});
 	}
 }
