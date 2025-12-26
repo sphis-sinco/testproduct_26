@@ -163,6 +163,6 @@ class InitState extends FlxState
 		var scenes = [];
 		for (key => value in lastSceneToClass)
 			scenes.push(key);
-		trace('Scene count: ' + scenes.length + 1);
+		trace('Scene count: ' + (scenes.length + 1));
 	}
 }
