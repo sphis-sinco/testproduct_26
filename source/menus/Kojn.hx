@@ -216,7 +216,7 @@ class Kojn extends MenuScene
 			{
 				if (Save.laststate == 'findTheCode')
 					findTheCode();
-				else if (!Save.kojnmemories.contains('foundcode'))
+				else if (Save.kojnmemories.contains('foundcode'))
 					foundTheCode();
 				else if (!Save.kojnmemories.contains('testproduct_26'))
 					tepro26();
