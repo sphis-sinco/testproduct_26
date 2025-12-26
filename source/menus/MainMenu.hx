@@ -1,5 +1,6 @@
 package menus;
 
+import scenes.v2.liedaboutassociation.NothingButAnInnocentCasualty;
 import backend.Sprite;
 import lime.app.Application;
 import flixel.util.FlxTimer;
@@ -76,11 +77,18 @@ class MainMenu extends MenuScene
 			Application.current.window.close();
 		});
 
+		var hideEverything:Bool = Save.beat.v2.liedAboutAssociation
+			|| ((Save.laststate == 'innocentCasualty' || Save.laststate == 'clickForKnowledge_uf') && FlxG.random.bool(20));
+
 		for (obj in members)
 			if (obj != topText)
-				obj.visible = !Save.beat.v2.liedAboutAssociation;
+				obj.visible = !hideEverything;
 
-		kojn.visible = Save.beat?.v1 ?? false;
+		if (kojn.visible)
+			kojn.visible = Save.beat?.v1 ?? false;
+
+		if (hideEverything && (Save.laststate == 'innocentCasualty' || Save.laststate == 'clickForKnowledge_uf'))
+			switchScene(new NothingButAnInnocentCasualty());
 	}
 
 	override function update(elapsed:Float)
