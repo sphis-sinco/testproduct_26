@@ -1,4 +1,4 @@
-package backend;
+package backend.buttonscenes;
 
 import flixel.util.FlxColor;
 import flixel.util.FlxSignal;

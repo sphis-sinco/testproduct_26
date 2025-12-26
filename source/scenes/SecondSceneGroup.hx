@@ -2,7 +2,7 @@ package scenes;
 
 import scenes.ThirdSceneGroup.Scene7Impatient;
 import scenes.ThirdSceneGroup.Scene7Normal;
-import backend.ButtonCodeScene;
+import backend.buttonscenes.ButtonCodeScene;
 
 class Scene4Normal extends ButtonCodeScene
 {

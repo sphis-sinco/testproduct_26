@@ -3,7 +3,7 @@ package scenes;
 import scenes.Scene10Intermissions.Scene10NormalIntermission;
 import scenes.FourthSceneGroup.Scene11Impatient;
 import scenes.FourthSceneGroup.Scene11Normal;
-import backend.ButtonRandomScene;
+import backend.buttonscenes.ButtonRandomScene;
 
 class Scene7Normal extends ButtonRandomScene
 {

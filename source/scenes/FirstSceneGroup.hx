@@ -4,7 +4,7 @@ import scenes.SecondSceneGroup;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
-import backend.ButtonScene;
+import backend.buttonscenes.ButtonScene;
 
 class Scene1 extends ButtonScene
 {

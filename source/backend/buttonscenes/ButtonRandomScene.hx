@@ -1,4 +1,4 @@
-package backend;
+package backend.buttonscenes;
 
 import flixel.FlxG;
 

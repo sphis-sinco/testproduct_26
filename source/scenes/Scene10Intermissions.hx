@@ -3,7 +3,7 @@ package scenes;
 import scenes.FourthSceneGroup.Scene11Impatient;
 import scenes.FourthSceneGroup.Scene11Normal;
 import flixel.util.FlxTimer;
-import backend.ButtonScene;
+import backend.buttonscenes.ButtonScene;
 
 class Scene10NormalIntermission extends ButtonScene
 {

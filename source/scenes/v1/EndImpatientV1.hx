@@ -1,7 +1,7 @@
 package scenes.v1;
 
 import lime.app.Application;
-import backend.ButtonScene;
+import backend.buttonscenes.ButtonScene;
 
 class EndImpatientV1 extends ButtonScene
 {
