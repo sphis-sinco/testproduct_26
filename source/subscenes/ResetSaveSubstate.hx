@@ -24,9 +24,9 @@ class ResetSaveSubstate extends Subscene
 		if (FlxG.keys.justReleased.Y)
 		{
 			FlxG.save.erase();
-			FlxG.resetGame();
-
 			InitState.lastTime = null;
+
+			FlxG.resetGame();
 
 			close();
 		}
