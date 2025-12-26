@@ -1,5 +1,7 @@
 package;
 
+import scenes.v2.liedaboutassociation.ClickForKnowledge;
+import scenes.v2.liedaboutassociation.FoundTheCode;
 import scenes.v2.unassociated.FindTheCodeVisibleCode;
 import scenes.v2.unassociated.FindTheCode;
 import scenes.v2.V2Intro;
@@ -23,7 +25,7 @@ using StringTools;
 
 class InitState extends FlxState
 {
-	static var lastSceneToClass:Map<String, FlxState> = null;
+	public static var lastSceneToClass:Map<String, FlxState> = null;
 
 	public static var increasedBuild:Bool = false;
 	public static var reloadingScenes:Bool = false;
@@ -159,6 +161,10 @@ class InitState extends FlxState
 
 			'findTheCode' => new FindTheCode(),
 			'findTheCode_vis' => new FindTheCodeVisibleCode(),
+
+			'foundTheCode' => new FoundTheCode(),
+			// 'clickForKnowledge' => new ClickForKnowledge(),
+			'clickForKnowledge_tf' => new TheFailureKnowledge(),
 		];
 		reloadingScenes = false;
 

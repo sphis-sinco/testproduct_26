@@ -104,7 +104,8 @@ class ButtonScene extends Scene
 
 	public function setCenterText(text:String)
 	{
-		FlxG.sound.play('assets/sfx/dialogue.wav');
+		if (text.length > 0)
+			FlxG.sound.play('assets/sfx/dialogue.wav');
 		centerText.text = text;
 		centerText.screenCenter(X);
 	}

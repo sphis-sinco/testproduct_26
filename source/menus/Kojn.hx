@@ -48,7 +48,8 @@ class Kojn extends MenuScene
 
 	public function setDialogue(text:String)
 	{
-		FlxG.sound.play('assets/kojn/dialogue.wav');
+		if (text.length > 0)
+			FlxG.sound.play('assets/kojn/dialogue.wav');
 		kojnDialogue.text = text;
 	}
 
