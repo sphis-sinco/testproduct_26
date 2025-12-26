@@ -191,16 +191,33 @@ class Kojn extends MenuScene
 		});
 	}
 
+	public function foundTheCode()
+	{
+		waitTimeThenSetDialogue(0, "...");
+		waitTimeThenSetDialogue(2, "How did you know.", function()
+		{
+			Save.kojnmemories.push('liedaboutassociation');
+
+			FlxG.sound.play('assets/kojn/kickout.wav');
+			FlxTimer.wait(.3, function()
+			{
+				switchScene(new MainMenu());
+			});
+		});
+	}
+
 	public function makeScene()
 	{
 		if (!Save?.seenkojn || (Save.kojnmemories == [] || Save.kojnmemories == null || Save.kojnmemories.length < 1))
 			firstTime();
 		else
 		{
-			if (Save.kojnmemories.contains('unassociated'))
+			if (Save.kojnmemories.contains('unassociated') && !Save.kojnmemories.contains('liedaboutassociation'))
 			{
 				if (Save.laststate == 'findTheCode')
 					findTheCode();
+				else if (!Save.kojnmemories.contains('foundcode'))
+					foundTheCode();
 				else if (!Save.kojnmemories.contains('testproduct_26'))
 					tepro26();
 				else
