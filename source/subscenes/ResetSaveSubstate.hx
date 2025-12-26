@@ -12,6 +12,7 @@ class ResetSaveSubstate extends Subscene
 	{
 		super.create();
 
+        omniMan.alignment = CENTER;
 		omniMan.screenCenter();
 		add(omniMan);
 	}
