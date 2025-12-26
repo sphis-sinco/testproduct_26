@@ -71,7 +71,7 @@ class InitState extends FlxState
 	public static function initSave()
 	{
 		FlxG.save.bind('tepro', Application.current.meta.get('company'));
-		FlxG.save.mergeDataFrom('tepro', 'SPhis');
+		// FlxG.save.mergeDataFrom('tepro', 'SPhis', true, true);
 
 		var onExit = function(l)
 		{
@@ -130,7 +130,7 @@ class InitState extends FlxState
 		}
 
 		if (Save.revertCount == null)
-			Save.revertCount = 1;
+			Save.revertCount = 0;
 
 		/*
 			if (Save.firsttime == null)

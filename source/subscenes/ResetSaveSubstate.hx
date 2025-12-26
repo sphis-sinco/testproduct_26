@@ -1,5 +1,7 @@
 package subscenes;
 
+import flixel.util.FlxSave;
+import backend.utils.ReflectUtils;
 import flixel.FlxG;
 import flixel.text.FlxText;
 import backend.Subscene;
@@ -12,7 +14,7 @@ class ResetSaveSubstate extends Subscene
 	{
 		super.create();
 
-        omniMan.alignment = CENTER;
+		omniMan.alignment = CENTER;
 		omniMan.screenCenter();
 		add(omniMan);
 	}
@@ -26,9 +28,9 @@ class ResetSaveSubstate extends Subscene
 			FlxG.save.erase();
 			InitState.lastTime = null;
 
-			FlxG.resetGame();
-
 			close();
+
+			FlxG.resetGame();
 		}
 
 		if (FlxG.keys.justReleased.N)
