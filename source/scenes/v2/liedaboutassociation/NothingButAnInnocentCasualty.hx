@@ -1,5 +1,6 @@
 package scenes.v2.liedaboutassociation;
 
+import lime.app.Application;
 import menus.MainMenu;
 import flixel.tweens.FlxTween;
 import flixel.FlxSprite;
@@ -74,7 +75,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 		{
             Save.beat.v2.liedAboutAssociation = true;
 
-			new MainMenu().onEscape.dispatch();
+            Application.current.window.close();
 		});
 	}
 }
