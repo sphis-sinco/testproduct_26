@@ -131,7 +131,10 @@ class MainMenu extends MenuScene
 						if (button == resetBox)
 						{
 							Save.revertCount += 1;
-							Save.laststate = null;
+							if (Save.laststate == 'revert')
+								Save.laststate = null;
+							else
+								Save.laststate = null;
 						}
 
 						if (button == kojn || (button == resetBox && Save.seenkojn && !Save.kojnmemories.contains('liedaboutassociation')))

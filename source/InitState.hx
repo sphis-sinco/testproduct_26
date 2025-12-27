@@ -1,5 +1,6 @@
 package;
 
+import scenes.v2.associated.Revert;
 import scenes.v2.associated.ClickIfYouDesireThis;
 import backend.utils.ReflectUtils;
 import scenes.v2.liedaboutassociation.NothingButAnInnocentCasualty;
@@ -217,6 +218,7 @@ class InitState extends FlxState
 			'findTheCode_vis' => new FindTheCodeVisibleCode(),
 
 			'desire' => new ClickIfYouDesireThis(),
+			'revert' => new Revert(),
 
 			'foundTheCode' => new FoundTheCode(),
 			// 'clickForKnowledge' => new ClickForKnowledge(),

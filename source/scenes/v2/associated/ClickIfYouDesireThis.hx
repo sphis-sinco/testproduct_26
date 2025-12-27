@@ -15,6 +15,8 @@ class ClickIfYouDesireThis extends ButtonScene
 			button.visible = false;
 			centerText.visible = false;
 		});
+
+		clickText.visible = false;
 	}
 
 	override function create()
