@@ -64,7 +64,7 @@ class InitState extends FlxState
 		
 		var onDateExit = function(l)
 		{
-			trace('Closed after ${(Date.now().getTime() - InitState.lastTime.getTime()) / 1000}s');
+			trace('Closed after ${(Date.now().getTime() - startTime.getTime()) / 1000}s');
 		};
 
 		if (!Application.current.onExit.has(onDateExit))
@@ -136,6 +136,7 @@ class InitState extends FlxState
 			Reflect.setField(Save.beat.v2, 'associated', Reflect.field(Save.beat.v2, 'associated') ?? false);
 			Reflect.setField(Save.beat.v2, 'unassociated', Reflect.field(Save.beat.v2, 'unassociated') ?? false);
 			Reflect.setField(Save.beat.v2, 'liedAboutAssociation', Reflect.field(Save.beat.v2, 'liedAboutAssociation') ?? false);
+			Reflect.setField(Save.beat.v2, 'associatedBad', Reflect.field(Save.beat.v2, 'associatedBad') ?? false);
 		}
 		catch (e)
 		{
