@@ -1,6 +1,5 @@
 package menus;
 
-import sys.io.File;
 import flixel.tweens.FlxTween;
 import flixel.ui.FlxButton;
 import flixel.util.FlxTimer;
