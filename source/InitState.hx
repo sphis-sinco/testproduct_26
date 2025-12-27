@@ -37,7 +37,7 @@ class InitState extends FlxState
 	public static var startTime:Date;
 	public static var lastTime:Date;
 
-	public static var usrName = #if windows Sys.environment()["USERNAME"]; #elseif (linux || macos) Sys.environment()["USER"]; #else 'foad' #end
+	public static var usrName = #if windows Sys.environment()["USERNAME"]; #elseif (linux || macos) Sys.environment()["USER"]; #else 'foad'; #end
 
 	override public function create()
 	{
