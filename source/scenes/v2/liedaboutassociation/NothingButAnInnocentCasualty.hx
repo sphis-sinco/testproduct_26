@@ -1,5 +1,6 @@
 package scenes.v2.liedaboutassociation;
 
+import backend.InnocentCasualty;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import menus.MainMenu;
@@ -71,38 +72,8 @@ class NothingButAnInnocentCasualty extends ButtonScene
 
 	public function ending()
 	{
-		var imgs = ['foadDead', 'theyKilled', 'wrongplacewrongtime', 'i was in the way', 'news'];
-
-		var randomShit:FlxSprite = new FlxSprite();
-		members.insert(0, randomShit);
-
-		var img = imgs[0];
-		randomShit.loadGraphic('assets/cutscenes/innocentCasualty/$img.png');
-		randomShit.screenCenter();
-
-		FlxTween.tween(centerText, {alpha: 1}, 10, {
-			onUpdate: function(t)
-			{
-				img = imgs[FlxG.random.int(0, imgs.length - 1)];
-
-				if (FlxG.random.bool(80))
-				{
-					randomShit.loadGraphic('assets/cutscenes/innocentCasualty/$img.png');
-					randomShit.scale.set(FlxG.random.float(.1, 1.5), FlxG.random.float(.1, 1.5));
-					randomShit.updateHitbox();
-					randomShit.screenCenter();
-					randomShit.color = FlxColor.fromRGBFloat(FlxG.random.int(0, 1), FlxG.random.int(0, 1), FlxG.random.int(0, 1));
-				}
-			}
-		});
-
 		button.visible = false;
 
-		FlxG.sound.play('assets/cutscenes/innocentCasualty/testproduct_26_aftermath.wav', 1, false, null, true, function()
-		{
-			Save.beat.v2.liedAboutAssociation = true;
-
-			Application.current.window.close();
-		});
+		new InnocentCasualty(this).run();
 	}
 }
