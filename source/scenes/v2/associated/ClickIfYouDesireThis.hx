@@ -14,6 +14,7 @@ class ClickIfYouDesireThis extends ButtonScene
 		{
 			button.visible = false;
 			centerText.visible = false;
+			switchScene(new Revert());
 		});
 
 		clickText.visible = false;

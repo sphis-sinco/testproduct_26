@@ -49,8 +49,6 @@ class InnocentCasualty
 
 		FlxG.sound.play('assets/cutscenes/innocentCasualty/testproduct_26_aftermath.wav', 1, false, null, true, function()
 		{
-			Save.beat.v2.liedAboutAssociation = true;
-
 			Application.current.window.close();
 		});
 

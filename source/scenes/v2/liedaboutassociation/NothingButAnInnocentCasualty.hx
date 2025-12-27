@@ -73,6 +73,7 @@ class NothingButAnInnocentCasualty extends ButtonScene
 	public function ending()
 	{
 		button.visible = false;
+		Save.beat.v2.liedAboutAssociation = true;
 
 		new InnocentCasualty(this).run();
 	}

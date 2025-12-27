@@ -8,7 +8,13 @@ class Revert extends ButtonScene
 	{
 		super('Go to the menu. Revert to level 1. Something special will happen', 'revert');
 
-        button.visible = false;
-        centerText.screenCenter(Y);
+		button.visible = false;
+		clickText.visible = false;
+	}
+
+	override function create()
+	{
+		super.create();
+		centerText.screenCenter(Y);
 	}
 }

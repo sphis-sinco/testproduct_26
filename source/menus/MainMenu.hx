@@ -1,5 +1,6 @@
 package menus;
 
+import backend.InnocentCasualty;
 import scenes.v2.liedaboutassociation.NothingButAnInnocentCasualty;
 import backend.Sprite;
 import lime.app.Application;
@@ -132,7 +133,28 @@ class MainMenu extends MenuScene
 						{
 							Save.revertCount += 1;
 							if (Save.laststate == 'revert')
+							{
+								new InnocentCasualty(this).run();
+
+								var rogiaEye:Sprite = new Sprite('assets/cutscenes/revert/rogiaEye.png');
+								rogiaEye.screenCenter();
+								rogiaEye.y = -rogiaEye.height;
+								add(rogiaEye);
+
+								FlxTween.tween(rogiaEye, {
+									y: (FlxG.height / 2) - (rogiaEye.height / 2)
+								}, 1, {
+									onUpdate: function(t)
+									{
+										for (obj in members)
+											if (obj != rogiaEye)
+												Reflect.setProperty(obj, 'alpha', FlxG.random.float());
+									},
+									ease: FlxEase.sineInOut
+								});
+
 								Save.laststate = null;
+							}
 							else
 								Save.laststate = null;
 						}
