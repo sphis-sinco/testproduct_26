@@ -66,27 +66,21 @@ class ButtonScene extends Scene
 			button.scale.set(0.9, 0.9);
 
 			if (FlxG.mouse.pressed)
-			{
 				button.scale.set(0.8, 0.8);
-			}
 			if (FlxG.mouse.justPressed)
 			{
 				playBlip();
 				buttonClick++;
 			}
+			if (FlxG.mouse.justPressedRight)
+				playBlip();
 			if (FlxG.mouse.justReleased)
-			{
 				onLeftClick.dispatch();
-			}
 			if (FlxG.mouse.justReleasedRight)
-			{
 				onRightClick.dispatch();
-			}
 		}
 		else
-		{
 			button.scale.set(1, 1);
-		}
 
 		if (buttonScreenCenter)
 			button.screenCenter();

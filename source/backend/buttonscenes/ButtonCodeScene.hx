@@ -94,18 +94,14 @@ class ButtonCodeScene extends ButtonScene
 					btn.scale.set(0.9, 0.9);
 
 					if (FlxG.mouse.pressed)
-					{
 						btn.scale.set(0.8, 0.8);
-					}
 					if (FlxG.mouse.justReleased)
 					{
 						playBlip();
 						if (btn == tempResetButton)
 						{
 							if (code.length < targetCode.length)
-							{
 								code.push(buttonClick);
-							}
 							else
 							{
 								FlxTween.cancelTweensOf(codeText);
@@ -123,9 +119,7 @@ class ButtonCodeScene extends ButtonScene
 					}
 				}
 				else
-				{
 					btn.scale.set(1, 1);
-				}
 			}
 
 			if (code.join('') == targetCode.join(''))
@@ -137,7 +131,6 @@ class ButtonCodeScene extends ButtonScene
 					FlxTween.cancelTweensOf(codeText);
 					FlxTween.color(codeText, 1, FlxColor.LIME, FlxColor.WHITE, {
 						ease: FlxEase.sineInOut,
-						onComplete: function(tcb) {}
 					});
 				}
 				onCompletion.dispatch();
